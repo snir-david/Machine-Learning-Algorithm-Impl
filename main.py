@@ -63,8 +63,8 @@ def perceptron(train_x, train_y):
                 # getting max arg from weights
                 y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
                 if train_y[i] != y_hat:
-                    w[int(train_y[i])] = w[int(train_y[i])] + train_x[i]
-                    w[y_hat] = w[y_hat] - train_x[i]
+                    w[int(train_y[i])] += train_x[i] * 0.1
+                    w[y_hat] -= train_x[i] * 0.1
         return w
 
     w = find_weights_bias(train_x, train_y)
@@ -72,6 +72,7 @@ def perceptron(train_x, train_y):
     for i in range(len(train_x)):
         trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
     err = getErrorRate(trained_xy, train_y)
+    print(err)
     return err
 
 
@@ -90,8 +91,15 @@ def svm(train_x, train_y):
                 # getting max arg from weights
                 y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
                 if train_y[i] != y_hat:
-                    w[int(train_y[i])] = w[int(train_y[i])] + train_x[i]
-                    w[y_hat] = w[y_hat] - train_x[i]
+                    w[int(train_y[i])] = (1 - 0.6 * 0.2) * w[int(train_y[i])] + 0.6 * train_x[i]
+                    w[y_hat] = w[y_hat] - train_x[i] * 0.6
+                    for s in range(3):
+                        if s != y_hat and s != train_y[i]:
+                            w[s] = w[s] * (1 - 0.6 * 0.2)
+                else:
+                    for j in range(3):
+                        w[j] = w[j] * (1 - 0.6 * 0.2)
+
         return w
 
     w = find_weights_bias(train_x, train_y)
@@ -99,7 +107,9 @@ def svm(train_x, train_y):
     for i in range(len(train_x)):
         trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
     err = getErrorRate(trained_xy, train_y)
+    print(err)
     return err
+
 
 def passive_aggressive(train_x, train_y):
     def find_weights_bias(train_x, train_y):
@@ -115,7 +125,8 @@ def passive_aggressive(train_x, train_y):
             for i in range(len(train_x)):
                 # getting max arg from weights
                 y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
-                if train_y[i] != y_hat:
+                # if train_y[i] != y_hat:
+                if w[y_hat] * train_y[i] * train_x[i] < 0:
                     w[int(train_y[i])] = w[int(train_y[i])] + train_x[i]
                     w[y_hat] = w[y_hat] - train_x[i]
         return w
@@ -135,4 +146,4 @@ if __name__ == '__main__':
     train_y = np.loadtxt(train_y, delimiter=",")
     # knn_res = knn(train_x, train_y)
     # perc_res = perceptron(train_x, train_y)
-
+    svm_res = svm(train_x, train_y)
