@@ -1,31 +1,65 @@
 # (C) Snir David Nahari - 205686538
 import collections
 import sys
-
-import numpy
 import numpy as np
+
+
+def normalize_data(train_x):
+    norm = np.linalg.norm(train_x, axis=0)
+    normal_x = train_x / norm
+    return normal_x
+
+
+def shuffle_data(train_x, train_y):
+    shuffeler = np.random.permutation(len(train_x))
+    shuffled_x = train_x[shuffeler]
+    shuffled_y = train_y[shuffeler]
+    return shuffled_x, shuffled_y
+
+
+def k_cross_fold(train_x, train_y, k):
+    split_x = np.split(train_x, k)
+    split_y = np.split(train_y, k)
+    return split_x, split_y
+
+
+def k_cross_join(train_x, train_y):
+    # concatenate the training data
+    tmp_arr_x = None
+    tmp_arr_y = None
+    for j in range(len(train_x)):
+        if j == 0:
+            tmp_arr_x = train_x[j]
+            tmp_arr_y = train_y[j]
+        else:
+            tmp_arr_x = np.concatenate((tmp_arr_x, train_x[j]), axis=0)
+            tmp_arr_y = np.concatenate((tmp_arr_y, train_y[j]), axis=0)
+    return tmp_arr_x, tmp_arr_y
 
 
 def getErrorRate(trained_xy, train_y):
     error = 0
+    err_id = []
     for i in range(len(train_y)):
         if trained_xy[i][1] != train_y[i]:
             error += 1
-    return error
+            err_id.append(i)
+    err_rate = error / len(train_y)
+    return err_rate, err_id
 
 
-def knn(train_x, train_y):
+def knn(train_x, train_y, test_x, k):
     def takeSecond(elem):
         return elem[1]
 
-    def classify_x(train_x, train_y, index, k):
+    def classify_x(train_x, train_y, index, classficate_x, k):
         neighbors = []
         find_class = []
         class_of_x = -1
         max_count = 0
         for j in range(len(train_x)):
             if j != index:
-                neighbors.append((train_x[j], np.linalg.norm(train_x[j] - train_x[index]), train_y[j]))
+                neighbors.append((train_x[j], np.linalg.norm(train_x[j] - classficate_x), train_y[j]))
         neighbors.sort(key=takeSecond)
         for i in range(k):
             find_class.append(neighbors[i][2])
@@ -35,17 +69,28 @@ def knn(train_x, train_y):
                 class_of_x = class_y
         return class_of_x
 
-    min_error = np.inf
-    best_k = 0
-    for k in range(1, 10):
-        trained_xy = []
-        for i in range(len(train_x)):
-            trained_xy.append((train_x[i], classify_x(train_x, train_y, i, k)))
-        error = getErrorRate(trained_xy, train_y)
-        if error < min_error:
-            min_error = error
-            best_k = k
-    return best_k
+    def find_k(train_x, train_y):
+        min_err = np.inf  # initialize current error as infinity
+        min_err_id = []
+        # iterating from 1 to 100 try to find best k for current splitting
+        sqrt_n = int(len(train_x) ** 0.5)
+        for k in range(1, sqrt_n):
+            trained_xy = []
+            for i in range(len(train_x)):
+                trained_xy.append((train_x[i], classify_x(train_x, train_y, i, train_x[i], k)))
+            error, err_id = getErrorRate(trained_xy, train_y)
+            if error < min_err:
+                min_err = error
+                min_err_id = err_id
+                best_k = k
+        print(f'best k is: {best_k},and the error is: {min_err} and Ids {min_err_id}')
+        return best_k
+
+    # predicts
+    predictions = []
+    for x in test_x:
+        predictions.append(classify_x(train_x, train_y, -1, x, 1))
+    return predictions
 
 
 def perceptron(train_x, train_y):
@@ -144,6 +189,8 @@ if __name__ == '__main__':
     train_x, train_y, test_s, output_file = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     train_x = np.loadtxt(train_x, delimiter=",")
     train_y = np.loadtxt(train_y, delimiter=",")
-    # knn_res = knn(train_x, train_y)
+    test = np.loadtxt(test_s, delimiter=",")
+    normal_x = normalize_data(train_x)
+    pred_knn = knn(train_x, train_y, test, 1)
     # perc_res = perceptron(train_x, train_y)
-    svm_res = svm(train_x, train_y)
+    # svm_res = svm(train_x, train_y)
