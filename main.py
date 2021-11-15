@@ -39,36 +39,41 @@ def k_cross_join(train_x, train_y):
 
 def getErrorRate(trained_xy, train_y):
     error = 0
-    err_id = []
     for i in range(len(train_y)):
         if trained_xy[i][1] != train_y[i]:
             error += 1
-            err_id.append(i)
     err_rate = error / len(train_y)
-    return err_rate, err_id
+    return err_rate
 
 
 def knn(train_x, train_y, test_x, k):
+    # helper method for sorting according to norm
     def takeSecond(elem):
         return elem[1]
 
-    def classify_x(train_x, train_y, index, classficate_x, k):
+    # knn method that classifies points
+    def classify_x(train_x, train_y, index, classifies_x, k):
         neighbors = []
         find_class = []
         class_of_x = -1
         max_count = 0
+        # adding all neighbors distance
         for j in range(len(train_x)):
             if j != index:
-                neighbors.append((train_x[j], np.linalg.norm(train_x[j] - classficate_x), train_y[j]))
+                neighbors.append((train_x[j], np.linalg.norm(train_x[j] - classifies_x), train_y[j]))
+        # sorting list of neighbors according to distance
         neighbors.sort(key=takeSecond)
+        # finding k closest neighbors
         for i in range(k):
             find_class.append(neighbors[i][2])
+        # finding most common class
         for class_y in find_class:
             counter = find_class.count(class_y)
             if counter > max_count:
                 class_of_x = class_y
         return class_of_x
 
+    # this function was used to find best k for training set
     def find_k(train_x, train_y):
         min_err = np.inf  # initialize current error as infinity
         min_err_id = []
@@ -83,7 +88,7 @@ def knn(train_x, train_y, test_x, k):
                 min_err = error
                 min_err_id = err_id
                 best_k = k
-        print(f'best k is: {best_k},and the error is: {min_err} and Ids {min_err_id}')
+        # print(f'best k is: {best_k},and the error is: {min_err} and Ids {min_err_id}')
         return best_k
 
     # predicts
@@ -94,7 +99,7 @@ def knn(train_x, train_y, test_x, k):
 
 
 def perceptron(train_x, train_y):
-    def find_weights_bias(train_x, train_y):
+    def find_weights_bias(train_x, train_y, learning_rate, epochs):
         classes = len(collections.Counter(train_y).keys())
         w = []
         for i in range(classes):
@@ -103,21 +108,34 @@ def perceptron(train_x, train_y):
         # TODO find best epoch number
         # TODO find learning rate
         # TODO find bias
-        for epoch in range(250):
+        min_err = np.inf
+        ep_num = 0
+        best_weight = []
+        for epoch in range(epochs):
             for i in range(len(train_x)):
+                train_x, train_y = shuffle_data(train_x, train_y)
                 # getting max arg from weights
                 y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
                 if train_y[i] != y_hat:
-                    w[int(train_y[i])] += train_x[i] * 0.1
-                    w[y_hat] -= train_x[i] * 0.1
-        return w
+                    w[int(train_y[i])] += train_x[i] * learning_rate
+                    w[y_hat] -= train_x[i] * learning_rate
+                    trained_xy = []
+                    for i in range(len(train_x)):
+                        trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
+                    err = getErrorRate(trained_xy, train_y)
+                    # print(f'error rate is: {err}, in epoch: {epoch}')
+                    if err < min_err:
+                        min_err = err
+                        ep_num = epoch
+                        best_weight = w
+        return best_weight, min_err, ep_num
 
-    w = find_weights_bias(train_x, train_y)
+    w, min_err, ep = find_weights_bias(train_x, train_y, 1, 1000)
     trained_xy = []
     for i in range(len(train_x)):
         trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
     err = getErrorRate(trained_xy, train_y)
-    print(err)
+    print(f'minimum error: {min_err} in epoch: {ep} and wightes are: {w}')
     return err
 
 
@@ -191,6 +209,7 @@ if __name__ == '__main__':
     train_y = np.loadtxt(train_y, delimiter=",")
     test = np.loadtxt(test_s, delimiter=",")
     normal_x = normalize_data(train_x)
-    pred_knn = knn(train_x, train_y, test, 1)
-    # perc_res = perceptron(train_x, train_y)
+    shuffled_x, shuffled_y = shuffle_data(normal_x, train_y)
+    # pred_knn = knn(train_x, train_y, test, 1)
+    pred_prec = perceptron(shuffled_x, shuffled_y)
     # svm_res = svm(train_x, train_y)
