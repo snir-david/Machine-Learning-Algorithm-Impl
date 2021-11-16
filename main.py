@@ -2,11 +2,11 @@
 import collections
 import sys
 from datetime import datetime
-
 import numpy as np
 
 
-def normalize_data_zscore(train_x):
+def normalize_data(train_x):
+    # normalize data using norm for each feature
     norm = np.linalg.norm(train_x, axis=0)
     normal_x = train_x / norm
     # mean = np.mean(train_x, axis=0)
@@ -42,7 +42,21 @@ def k_cross_join(train_x, train_y):
     return tmp_arr_x, tmp_arr_y
 
 
-def getErrorRate(trained_xy, train_y):
+def hinge_loss(w, y, x):
+    wyx = np.sum(w[y] * x)
+    max = -np.inf
+    max_r = -1
+    for r in range(len(w)):
+        if r != y:
+            wrx = np.sum(np.transpose(w[r]) * x)
+            tmp_max = np.maximum(0, 1 - wyx + wrx)
+            if tmp_max > max:
+                max = tmp_max
+                max_r = r
+    return max
+
+
+def get_error_rate(trained_xy, train_y):
     error = 0
     for i in range(len(train_y)):
         if trained_xy[i][1] != train_y[i]:
@@ -88,7 +102,7 @@ def knn(train_x, train_y, test_x, k):
             trained_xy = []
             for i in range(len(train_x)):
                 trained_xy.append((train_x[i], classify_x(train_x, train_y, i, train_x[i], k)))
-            error, err_id = getErrorRate(trained_xy, train_y)
+            error, err_id = get_error_rate(trained_xy, train_y)
             if error < min_err:
                 min_err = error
                 min_err_id = err_id
@@ -96,6 +110,7 @@ def knn(train_x, train_y, test_x, k):
         # print(f'best k is: {best_k},and the error is: {min_err} and Ids {min_err_id}')
         return best_k
 
+    # find_k(train_x, train_y)
     # predicts
     predictions = []
     for x in test_x:
@@ -121,13 +136,13 @@ def perceptron(train_x, train_y, test_x):
             for i in range(len(train_x)):
                 # getting max arg from weights
                 y_hat = np.argmax(np.sum(w_perc * train_x[i], axis=1))
-                if train_y[i] != y_hat:
+                if int(train_y[i]) != y_hat:
                     w_perc[int(train_y[i])] += train_x[i] * learning_rate
                     w_perc[y_hat] -= train_x[i] * learning_rate
                     trained_xy = []
                     for i in range(len(train_x)):
                         trained_xy.append((train_x[i], classify_x(train_x[i], w_perc)))
-                    err = getErrorRate(trained_xy, train_y)
+                    err = get_error_rate(trained_xy, train_y)
                     # print(f'error rate is: {err}, in epoch: {epoch}')
                     if err < min_err_perc:
                         min_err_perc = err
@@ -158,67 +173,129 @@ def perceptron(train_x, train_y, test_x):
     return predictions
 
 
-def svm(train_x, train_y):
-    def find_weights_bias(train_x, train_y):
-        classes = len(collections.Counter(train_y).keys())
-        w = []
-        for i in range(classes):
-            w.append(np.zeros(len(train_x[0])))
-        b = 0
-        # TODO find best epoch number
-        # TODO find learning rate
-        # TODO find bias
-        for epoch in range(250):
+def svm(train_x, train_y, test_x):
+    def classify_x(classifies_x, weights):
+        sum = np.sum(weights * classifies_x, axis=1)
+        return np.argmax(sum)
+
+    def find_weights_bias(train_x, train_y, learning_rate, lambda_svm, epochs):
+        num_of_classes = len(collections.Counter(train_y).keys())
+        w_svm = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
+        min_err_svm = np.inf
+        best_epoch_num = 0
+        best_weight = []
+        for epoch in range(epochs):
+            train_x, train_y = shuffle_data(train_x, train_y)
             for i in range(len(train_x)):
-                # getting max arg from weights
-                y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
-                if train_y[i] != y_hat:
-                    w[int(train_y[i])] = (1 - 0.6 * 0.2) * w[int(train_y[i])] + 0.6 * train_x[i]
-                    w[y_hat] = w[y_hat] - train_x[i] * 0.6
-                    for s in range(3):
-                        if s != y_hat and s != train_y[i]:
-                            w[s] = w[s] * (1 - 0.6 * 0.2)
+                tmp_weights = np.delete(w_svm, int(train_y[i]), axis=0)
+                r = np.argmax(np.sum(tmp_weights * train_x[i], axis=1))
+                if hinge_loss(w_svm, int(train_y[i]), train_x[i]) > 0:
+                    w_svm[int(train_y[i])] = (1 - lambda_svm * learning_rate) * w_svm[int(train_y[i])] \
+                                             + train_x[i] * learning_rate
+                    w_svm[r] = (1 - lambda_svm * learning_rate) * w_svm[r] - train_x[i] * learning_rate
+                    for w in range(len(w_svm)):
+                        if not (np.array_equal(w_svm[w], w_svm[r]) or np.array_equal(w_svm[w], w_svm[int(train_y[i])])):
+                            w_svm[w] = (1 - lambda_svm * learning_rate) * w_svm[w]
                 else:
-                    for j in range(3):
-                        w[j] = w[j] * (1 - 0.6 * 0.2)
+                    for w in range(len(w_svm)):
+                        w_svm[w] = (1 - lambda_svm * learning_rate) * w_svm[w]
+                # check error rate with current parameters
+                trained_xy = []
+                for i in range(len(train_x)):
+                    trained_xy.append((train_x[i], classify_x(train_x[i], w_svm)))
+                err = get_error_rate(trained_xy, train_y)
+                # print(f'error rate is: {err}, in epoch: {epoch}')
+                if err < min_err_svm:
+                    min_err_svm = err
+                    best_epoch_num = epoch
+                    best_weight = w_svm
+        return best_weight, min_err_svm, best_epoch_num
 
-        return w
+    def training(train_x, train_y):
+        output = open("svm_parma.txt", 'w+')
+        values = [1, 0.8, 0.6, 0.4, 0.2]
+        for i in range(len(values)):
+            output.write(f'Starting with new learning rate...\n')
+            for j in range(len(values)):
+                start = datetime.now()
+                st_current_time = start.strftime("%H:%M:%S")
+                output.write(f'Start training at -  {st_current_time}\n')
+                w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 50)
+                output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n'
+                             f'with regularization: {values[j]} and learning rate: {values[i]}\n')
+                end = datetime.now()
+                end_current_time = end.strftime("%H:%M:%S")
+                output.write(f'End training at - {end_current_time}\n')
+                run = end - start
+                output.write(f'Total time for training is {run}\n\n')
 
-    w = find_weights_bias(train_x, train_y)
-    trained_xy = []
-    for i in range(len(train_x)):
-        trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
-    err = getErrorRate(trained_xy, train_y)
-    print(err)
-    return err
+    training(train_x, train_y)
+    # predicts
+    # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
+    #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
+    #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
+    # predictions = []
+    # for x in test_x:
+    #     predictions.append(classify_x(x, best_weights_found))
+    # return predictions
 
 
-def passive_aggressive(train_x, train_y):
-    def find_weights_bias(train_x, train_y):
-        classes = len(collections.Counter(train_y).keys())
-        w = []
-        for i in range(classes):
-            w.append(np.zeros(len(train_x[0])))
-        b = 0
-        # TODO find best epoch number
-        # TODO find learning rate
-        # TODO find bias
-        for epoch in range(250):
+def passive_aggressive(train_x, train_y, test_x):
+    def classify_x(classifies_x, weights):
+        sum = np.sum(weights * classifies_x, axis=1)
+        return np.argmax(sum)
+
+    def find_weights_bias(train_x, train_y, epochs):
+        w_pa = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
+        min_err_svm = np.inf
+        best_epoch_num = 0
+        best_weight = []
+        for epoch in range(epochs):
+            train_x, train_y = shuffle_data(train_x, train_y)
             for i in range(len(train_x)):
-                # getting max arg from weights
-                y_hat = np.argmax(np.sum(w * train_x[i], axis=1))
-                # if train_y[i] != y_hat:
-                if w[y_hat] * train_y[i] * train_x[i] < 0:
-                    w[int(train_y[i])] = w[int(train_y[i])] + train_x[i]
-                    w[y_hat] = w[y_hat] - train_x[i]
-        return w
+                tmp_weights = np.delete(w_pa, int(train_y[i]), axis=0)
+                y_hat = np.argmax(np.sum(tmp_weights * train_x[i], axis=1))
+                loss = hinge_loss(w_pa, int(train_y[i]), train_x[i])
+                if loss > 0:
+                    tau = (loss / 2 * (np.linalg.norm(train_x[i]) ** 2))
+                    w_pa[int(train_y[i])] += train_x[i] * tau
+                    w_pa[y_hat] -= train_x[i] * tau
+                # check error rate with current parameters
+                trained_xy = []
+                for i in range(len(train_x)):
+                    trained_xy.append((train_x[i], classify_x(train_x[i], w_pa)))
+                err = get_error_rate(trained_xy, train_y)
+                # print(f'error rate is: {err}, in epoch: {epoch}')
+                if err < min_err_svm:
+                    min_err_svm = err
+                    best_epoch_num = epoch
+                    best_weight = w_pa
+        return best_weight, min_err_svm, best_epoch_num
 
-    w = find_weights_bias(train_x, train_y)
-    trained_xy = []
-    for i in range(len(train_x)):
-        trained_xy.append((train_x[i], np.argmax(np.sum(w * train_x[i], axis=1))))
-    err = getErrorRate(trained_xy, train_y)
-    return err
+    def training(train_x, train_y):
+        output = open("pa_parma.txt", 'w+')
+        for i in range(10):
+            output.write(f'Starting new iteration...\n')
+            start = datetime.now()
+            st_current_time = start.strftime("%H:%M:%S")
+            output.write(f'Start training at -  {st_current_time}\n')
+            w, min_err, ep = find_weights_bias(train_x, train_y, 50)
+            output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
+            end = datetime.now()
+            end_current_time = end.strftime("%H:%M:%S")
+            output.write(f'End training at - {end_current_time}\n')
+            run = end - start
+            output.write(f'Total time for training is {run}\n\n')
+
+    training(train_x, train_y)
+    # predicts
+    # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
+    #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
+    #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
+    # predictions = []
+    # for x in test_x:
+    #     predictions.append(classify_x(x, best_weights_found))
+    # return predictions
 
 
 if __name__ == '__main__':
@@ -226,12 +303,10 @@ if __name__ == '__main__':
     train_x = np.loadtxt(train_x, delimiter=",")
     train_y = np.loadtxt(train_y, delimiter=",")
     test = np.loadtxt(test_s, delimiter=",")
-    normal_x = normalize_data_zscore(train_x)
+    normal_x = normalize_data(train_x)
     shuffled_x, shuffled_y = shuffle_data(normal_x, train_y)
-    # norm = np.linalg.norm(train_x, axis=0)
-    # normal_test = test / norm
-    normal_test = normalize_data_zscore(test)
+    normal_test = normalize_data(test)
     # pred_knn = knn(train_x, train_y, test, 1)
     # pred_prec = perceptron(shuffled_x, shuffled_y, normal_test)
-    # svm_res = svm(train_x, train_y)
-
+    # svm_res = svm(shuffled_x, shuffled_y, normal_test)
+    pred_pa = passive_aggressive(shuffled_x, shuffled_y, normal_test)
