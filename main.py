@@ -42,18 +42,22 @@ def k_cross_join(train_x, train_y):
     return tmp_arr_x, tmp_arr_y
 
 
-def hinge_loss(w, y, x):
+def arg_max(weights, train_x, r=-1):
+    max_id = -1
+    max_v = -np.inf
+    values = np.sum(weights * train_x, axis=1)
+    for index in range(len(values)):
+        if index != r:
+            if max_v < values[index]:
+                max_id = index
+                max_v = values[index]
+    return max_id
+
+
+def hinge_loss(w, y, x, arg_max):
     wyx = np.sum(w[y] * x)
-    max = -np.inf
-    max_r = -1
-    for r in range(len(w)):
-        if r != y:
-            wrx = np.sum(np.transpose(w[r]) * x)
-            tmp_max = np.maximum(0, 1 - wyx + wrx)
-            if tmp_max > max:
-                max = tmp_max
-                max_r = r
-    return max
+    wrx = np.sum(w[arg_max] * x)
+    return np.maximum(0, 1 - wyx + wrx)
 
 
 def get_error_rate(trained_xy, train_y):
@@ -175,30 +179,26 @@ def perceptron(train_x, train_y, test_x):
 
 def svm(train_x, train_y, test_x):
     def classify_x(classifies_x, weights):
-        sum = np.sum(weights * classifies_x, axis=1)
-        return np.argmax(sum)
+        return arg_max(classifies_x, weights)
 
-    def find_weights_bias(train_x, train_y, learning_rate, lambda_svm, epochs):
-        num_of_classes = len(collections.Counter(train_y).keys())
+    def find_weights_bias(train_x, train_y, eta_svm, lambda_svm, epochs):
         w_svm = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
         min_err_svm = np.inf
         best_epoch_num = 0
         best_weight = []
         for epoch in range(epochs):
-            train_x, train_y = shuffle_data(train_x, train_y)
+            # train_x, train_y = shuffle_data(train_x, train_y)
             for i in range(len(train_x)):
-                tmp_weights = np.delete(w_svm, int(train_y[i]), axis=0)
-                r = np.argmax(np.sum(tmp_weights * train_x[i], axis=1))
-                if hinge_loss(w_svm, int(train_y[i]), train_x[i]) > 0:
-                    w_svm[int(train_y[i])] = (1 - lambda_svm * learning_rate) * w_svm[int(train_y[i])] \
-                                             + train_x[i] * learning_rate
-                    w_svm[r] = (1 - lambda_svm * learning_rate) * w_svm[r] - train_x[i] * learning_rate
+                r = arg_max(w_svm, train_x[i], train_y[i])
+                if hinge_loss(w_svm, int(train_y[i]), train_x[i], r) > 0:
+                    w_svm[int(train_y[i])] = (1 - lambda_svm * eta_svm) * w_svm[int(train_y[i])] + train_x[i] * eta_svm
+                    w_svm[r] = (1 - lambda_svm * eta_svm) * w_svm[r] - train_x[i] * eta_svm
                     for w in range(len(w_svm)):
                         if not (np.array_equal(w_svm[w], w_svm[r]) or np.array_equal(w_svm[w], w_svm[int(train_y[i])])):
-                            w_svm[w] = (1 - lambda_svm * learning_rate) * w_svm[w]
+                            w_svm[w] = (1 - lambda_svm * eta_svm) * w_svm[w]
                 else:
                     for w in range(len(w_svm)):
-                        w_svm[w] = (1 - lambda_svm * learning_rate) * w_svm[w]
+                        w_svm[w] *= (1 - lambda_svm * eta_svm)
                 # check error rate with current parameters
                 trained_xy = []
                 for i in range(len(train_x)):
@@ -209,18 +209,19 @@ def svm(train_x, train_y, test_x):
                     min_err_svm = err
                     best_epoch_num = epoch
                     best_weight = w_svm
+            eta_svm = eta_svm / 2
         return best_weight, min_err_svm, best_epoch_num
 
     def training(train_x, train_y):
         output = open("svm_parma.txt", 'w+')
-        values = [1, 0.8, 0.6, 0.4, 0.2]
+        values = [0.6, 0.4, 0.2, 0.1, 0.001, 0.0001]
         for i in range(len(values)):
             output.write(f'Starting with new learning rate...\n')
             for j in range(len(values)):
                 start = datetime.now()
                 st_current_time = start.strftime("%H:%M:%S")
                 output.write(f'Start training at -  {st_current_time}\n')
-                w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 50)
+                w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 200)
                 output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n'
                              f'with regularization: {values[j]} and learning rate: {values[i]}\n')
                 end = datetime.now()
@@ -242,8 +243,7 @@ def svm(train_x, train_y, test_x):
 
 def passive_aggressive(train_x, train_y, test_x):
     def classify_x(classifies_x, weights):
-        sum = np.sum(weights * classifies_x, axis=1)
-        return np.argmax(sum)
+        return arg_max(classifies_x, weights)
 
     def find_weights_bias(train_x, train_y, epochs):
         w_pa = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
@@ -251,11 +251,10 @@ def passive_aggressive(train_x, train_y, test_x):
         best_epoch_num = 0
         best_weight = []
         for epoch in range(epochs):
-            train_x, train_y = shuffle_data(train_x, train_y)
+            # train_x, train_y = shuffle_data(train_x, train_y)
             for i in range(len(train_x)):
-                tmp_weights = np.delete(w_pa, int(train_y[i]), axis=0)
-                y_hat = np.argmax(np.sum(tmp_weights * train_x[i], axis=1))
-                loss = hinge_loss(w_pa, int(train_y[i]), train_x[i])
+                y_hat = arg_max(w_pa,train_x[i], train_y[i])
+                loss = hinge_loss(w_pa, int(train_y[i]), train_x[i], y_hat)
                 if loss > 0:
                     tau = (loss / 2 * (np.linalg.norm(train_x[i]) ** 2))
                     w_pa[int(train_y[i])] += train_x[i] * tau
@@ -274,18 +273,20 @@ def passive_aggressive(train_x, train_y, test_x):
 
     def training(train_x, train_y):
         output = open("pa_parma.txt", 'w+')
-        for i in range(10):
+        for i in range(5):
+            epoch = 100
             output.write(f'Starting new iteration...\n')
             start = datetime.now()
             st_current_time = start.strftime("%H:%M:%S")
             output.write(f'Start training at -  {st_current_time}\n')
-            w, min_err, ep = find_weights_bias(train_x, train_y, 50)
+            w, min_err, ep = find_weights_bias(train_x, train_y, epoch)
             output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
             end = datetime.now()
             end_current_time = end.strftime("%H:%M:%S")
             output.write(f'End training at - {end_current_time}\n')
             run = end - start
             output.write(f'Total time for training is {run}\n\n')
+            epoch += 100
 
     training(train_x, train_y)
     # predicts
