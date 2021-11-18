@@ -1,544 +1,687 @@
 Starting with new learning rate...
-Start training at -  07:16:45
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.00919209  0.00959617  0.00972329 -0.00843581 -0.01992964]
- [ 0.0448697   0.03850299 -0.03116967 -0.04497052 -0.03003352]
- [-0.053364   -0.04736226  0.02064305  0.05270947  0.04922505]] 
-with regularization: 0.6 and learning rate: 0.6
-End training at - 07:18:47
-Total time for training is 0:02:02.493005
+Start training at -  07:53:52
+minimum error: 0.08333333333333333 in epoch: 6 and weights are: [[ 0.00280185  0.00213254  0.00996387 -0.0023316  -0.00029453]
+ [ 0.00175194  0.00052242  0.00118802 -0.00170337 -0.00039059]
+ [-0.00455379 -0.00265496 -0.01115189  0.00403497  0.00068511]] 
+with regularization: 1 and learning rate: 1
+End training at - 07:54:20
+Total time for training is 0:00:27.958897
 
-Start training at -  07:18:47
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.01290797  0.01323584  0.03284079 -0.01129023 -0.00297589]
- [ 0.02427718  0.02287047 -0.04347828 -0.02514545 -0.00689029]
- [-0.03748737 -0.03645513  0.01121916  0.03674795  0.01079375]] 
-with regularization: 0.4 and learning rate: 0.6
-End training at - 07:20:47
-Total time for training is 0:01:59.812477
+Start training at -  07:54:20
+minimum error: 0.13333333333333333 in epoch: 4 and weights are: [[ 0.00281985  0.00215271  0.0100088  -0.00234716 -0.00025201]
+ [ 0.00175826  0.00053252  0.00116172 -0.00171233 -0.00035996]
+ [-0.00457812 -0.00268523 -0.01117052  0.00405949  0.00061197]] 
+with regularization: 0.8 and learning rate: 1
+End training at - 07:54:48
+Total time for training is 0:00:28.274677
 
-Start training at -  07:20:47
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.00515094  0.00159709  0.04157177 -0.00352128  0.00747365]
- [ 0.04725996  0.04750343 -0.05883521 -0.04787099 -0.0525511 ]
- [-0.05328394 -0.04998424  0.01886463  0.0522993   0.04666889]] 
-with regularization: 0.2 and learning rate: 0.6
-End training at - 07:22:47
-Total time for training is 0:02:00.562505
+Start training at -  07:54:48
+minimum error: 0.13333333333333333 in epoch: 5 and weights are: [[ 0.00281195  0.00214325  0.0100588  -0.00233926 -0.00030416]
+ [ 0.00174359  0.00051127  0.00112035 -0.00169951 -0.00037521]
+ [-0.00455553 -0.00265453 -0.01117914  0.00403877  0.00067938]] 
+with regularization: 0.7 and learning rate: 1
+End training at - 07:55:16
+Total time for training is 0:00:27.768021
 
-Start training at -  07:22:47
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.01778323  0.01579422  0.02399963 -0.01625807 -0.02097268]
- [ 0.02302644  0.02230945 -0.03408993 -0.02359603 -0.02096035]
- [-0.04480341 -0.04203176  0.01617405  0.04395018  0.04606808]] 
-with regularization: 0.1 and learning rate: 0.6
-End training at - 07:24:49
-Total time for training is 0:02:02.030876
+Start training at -  07:55:16
+minimum error: 0.08333333333333333 in epoch: 5 and weights are: [[ 0.00280185  0.00213254  0.00996387 -0.0023316  -0.00029453]
+ [ 0.00175194  0.00052242  0.00118802 -0.00170337 -0.00039059]
+ [-0.00455379 -0.00265496 -0.01115189  0.00403497  0.00068511]] 
+with regularization: 0.5 and learning rate: 1
+End training at - 07:55:42
+Total time for training is 0:00:25.973960
 
-Start training at -  07:24:49
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00178052 -0.00467316  0.03750446  0.00305313  0.00606096]
- [ 0.02786715  0.02837463 -0.03735049 -0.02832126 -0.02581017]
- [-0.03520009 -0.03298078  0.01207241  0.03453064  0.02819279]] 
-with regularization: 0.001 and learning rate: 0.6
-End training at - 07:26:53
-Total time for training is 0:02:03.009535
+Start training at -  07:55:42
+minimum error: 0.10416666666666667 in epoch: 5 and weights are: [[ 0.00280679  0.00215318  0.0100267  -0.00233388 -0.00030234]
+ [ 0.00175266  0.00052109  0.0011501  -0.00170942 -0.00036981]
+ [-0.00455945 -0.00267427 -0.0111768   0.0040433   0.00067215]] 
+with regularization: 0.3 and learning rate: 1
+End training at - 07:56:08
+Total time for training is 0:00:26.368002
 
-Start training at -  07:26:53
-minimum error: 0.675 in epoch: 0 and weights are: [[-0.00151805 -0.0042499   0.03527084  0.00272003  0.00558314]
- [ 0.02716177  0.02765607 -0.03641832 -0.02760505 -0.02516053]
- [-0.03331306 -0.03121501  0.01143104  0.03267954  0.02668177]] 
-with regularization: 0.0001 and learning rate: 0.6
-End training at - 07:28:55
-Total time for training is 0:02:02.713553
+Start training at -  07:56:08
+minimum error: 0.13333333333333333 in epoch: 1 and weights are: [[ 0.00281985  0.00215271  0.0100088  -0.00234716 -0.00025201]
+ [ 0.00175826  0.00053252  0.00116172 -0.00171233 -0.00035996]
+ [-0.00457812 -0.00268523 -0.01117052  0.00405949  0.00061197]] 
+with regularization: 0.1 and learning rate: 1
+End training at - 07:56:34
+Total time for training is 0:00:26.261001
 
-Start training at -  07:28:55
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.0004027  -0.00112689  0.00935052  0.00072134  0.00148019]
- [ 0.00883041  0.00899105 -0.01183923 -0.0089745  -0.00817966]
- [-0.00883187 -0.00827567  0.00303056  0.00866392  0.00707384]] 
-with regularization: 1e-05 and learning rate: 0.6
-End training at - 07:30:58
-Total time for training is 0:02:02.478017
+Start training at -  07:56:34
+minimum error: 0.1125 in epoch: 0 and weights are: [[ 0.00109651  0.00084026  0.00394235 -0.00091113 -0.00011687]
+ [ 0.00067565  0.00018935  0.00041555 -0.00066005 -0.000152  ]
+ [-0.00177216 -0.00102961 -0.00435789  0.00157118  0.00026887]] 
+with regularization: 0.001 and learning rate: 1
+End training at - 07:57:00
+Total time for training is 0:00:26.124994
 
-Start training at -  07:30:58
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-4.60397271e-10 -1.29360448e-09  1.07568942e-08  8.27054014e-10
-   1.69936450e-09]
- [ 1.06249718e-08  1.08180483e-08 -1.42447622e-08 -1.07983273e-08
-  -9.84064399e-09]
- [-1.01645750e-08 -9.52444435e-09  3.48786866e-09  9.97127380e-09
-   8.14127996e-09]] 
-with regularization: 1e-11 and learning rate: 0.6
-End training at - 07:33:00
-Total time for training is 0:02:02.187531
+Start training at -  07:57:00
+minimum error: 0.0875 in epoch: 0 and weights are: [[ 1.34820633e-04  1.03715250e-04  4.85885807e-04 -1.11965927e-04
+  -1.42052367e-05]
+ [ 8.33665198e-05  2.27455428e-05  5.10399761e-05 -8.16484659e-05
+  -1.81356016e-05]
+ [-2.18187152e-04 -1.26460793e-04 -5.36925783e-04  1.93614393e-04
+   3.23408383e-05]] 
+with regularization: 0.0001 and learning rate: 1
+End training at - 07:57:27
+Total time for training is 0:00:26.174926
 
-Starting with new learning rate...
-Start training at -  07:33:00
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.00915575  0.00517026  0.01102454 -0.00822165  0.00412869]
- [ 0.00722274  0.01069447 -0.01475167 -0.00771757 -0.02629155]
- [-0.01415186 -0.01389443  0.00480208  0.01391348  0.01722154]] 
-with regularization: 0.6 and learning rate: 0.4
-End training at - 07:35:03
-Total time for training is 0:02:03.155400
-
-Start training at -  07:35:03
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.04878422  0.04530612 -0.00361075 -0.04757302 -0.04898114]
- [ 0.03632262  0.03615115 -0.02414812 -0.03592409 -0.02036425]
- [-0.08639404 -0.08270083  0.03069031  0.08488205  0.07273652]] 
-with regularization: 0.4 and learning rate: 0.4
-End training at - 07:38:09
-Total time for training is 0:03:05.604995
-
-Start training at -  07:38:09
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.00715439  0.00223045  0.05727302 -0.00509784 -0.00598225]
- [ 0.05554971  0.05602033 -0.07359811 -0.05636209 -0.05084987]
- [-0.06780092 -0.06349184  0.02400966  0.06667167  0.06167527]] 
-with regularization: 0.2 and learning rate: 0.4
-End training at - 07:40:19
-Total time for training is 0:02:10.016338
-
-Start training at -  07:40:19
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.01935451 -0.023236    0.0807467   0.0217357   0.01110826]
- [ 0.06279353  0.06338075 -0.08530033 -0.06396806 -0.04403233]
- [-0.05314116 -0.04990908  0.01791153  0.05211783  0.03971332]] 
-with regularization: 0.1 and learning rate: 0.4
-End training at - 07:42:37
-Total time for training is 0:02:18.559966
-
-Start training at -  07:42:37
-minimum error: 0.3958333333333333 in epoch: 0 and weights are: [[-0.00242447 -0.00676308  0.05607851  0.00433504  0.00886527]
- [ 0.04167399  0.04243094 -0.05588464 -0.04235411 -0.03858368]
- [-0.05293793 -0.04960525  0.01816343  0.05193107  0.04240169]] 
-with regularization: 0.001 and learning rate: 0.4
-End training at - 07:45:01
-Total time for training is 0:02:23.386640
-
-Start training at -  07:45:01
-minimum error: 0.5875 in epoch: 0 and weights are: [[-0.00205762 -0.00576217  0.04783269  0.00368772  0.00757298]
- [ 0.03840052  0.03909922 -0.05148728 -0.03902721 -0.03557244]
- [-0.04517934 -0.04233419  0.01550277  0.04432015  0.03618557]] 
-with regularization: 0.0001 and learning rate: 0.4
-End training at - 07:47:07
-Total time for training is 0:02:06.433475
-
-Start training at -  07:47:07
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00041803 -0.00117609  0.00978773  0.00075169  0.00154708]
- [ 0.00937688  0.00954725 -0.01257299 -0.00952993 -0.00868632]
- [-0.00924836 -0.00866593  0.00317348  0.00907248  0.00740744]] 
-with regularization: 1e-05 and learning rate: 0.4
-End training at - 07:49:16
-Total time for training is 0:02:09.374241
-
-Start training at -  07:49:16
-minimum error: 0.44166666666666665 in epoch: 0 and weights are: [[-4.60373296e-10 -1.29383572e-09  1.07582622e-08  8.27087216e-10
-   1.70006412e-09]
- [ 1.06249484e-08  1.08182802e-08 -1.42461306e-08 -1.07983612e-08
-  -9.84134416e-09]
- [-1.01645755e-08 -9.52444481e-09  3.48786882e-09  9.97127428e-09
-   8.14128035e-09]] 
-with regularization: 1e-11 and learning rate: 0.4
-End training at - 07:51:22
-Total time for training is 0:02:05.750007
+Start training at -  07:57:27
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 1
+End training at - 07:57:54
+Total time for training is 0:00:27.867086
 
 Starting with new learning rate...
-Start training at -  07:51:22
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.06621493  0.05487588  0.09796367 -0.06065319 -0.06269847]
- [ 0.10665054  0.10558517 -0.14997498 -0.1088616  -0.09078257]
- [-0.17885638 -0.16666934  0.06144254  0.17563131  0.1554638 ]] 
-with regularization: 0.6 and learning rate: 0.2
-End training at - 07:53:27
-Total time for training is 0:02:04.406282
+Start training at -  07:57:54
+minimum error: 0.13333333333333333 in epoch: 4 and weights are: [[ 0.00352482  0.00269088  0.012511   -0.00293395 -0.00031501]
+ [ 0.00219783  0.00066565  0.00145215 -0.00214041 -0.00044996]
+ [-0.00572264 -0.00335654 -0.01396315  0.00507436  0.00076496]] 
+with regularization: 1 and learning rate: 0.8
+End training at - 07:58:23
+Total time for training is 0:00:28.173590
 
-Start training at -  07:53:27
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.02063934 -0.02347113  0.08429119  0.02283399  0.01481197]
- [ 0.06320312  0.06202362 -0.07761512 -0.06382522 -0.04740911]
- [-0.06670029 -0.06209054  0.02316909  0.06535835  0.05091213]] 
-with regularization: 0.4 and learning rate: 0.2
-End training at - 07:55:33
-Total time for training is 0:02:06.578715
+Start training at -  07:58:23
+minimum error: 0.08333333333333333 in epoch: 5 and weights are: [[ 0.00350986  0.00268332  0.01254004 -0.0029204  -0.00036369]
+ [ 0.00217559  0.00064169  0.00140593 -0.00212112 -0.00047518]
+ [-0.00568545 -0.00332501 -0.01394597  0.00504151  0.00083886]] 
+with regularization: 0.8 and learning rate: 0.8
+End training at - 07:58:49
+Total time for training is 0:00:26.323001
 
-Start training at -  07:55:33
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.01441425 -0.02140542  0.10724643  0.01780358  0.03148973]
- [ 0.07257145  0.07432158 -0.1026213  -0.07392087 -0.07186917]
- [-0.07829178 -0.07330376  0.0261169   0.0767244   0.05977338]] 
-with regularization: 0.2 and learning rate: 0.2
-End training at - 07:57:43
-Total time for training is 0:02:10.159613
+Start training at -  07:58:49
+minimum error: 0.10833333333333334 in epoch: 7 and weights are: [[ 0.00351992  0.00268622  0.01244942 -0.00293245 -0.00031213]
+ [ 0.00220731  0.0006756   0.00149844 -0.00214601 -0.00045491]
+ [-0.00572723 -0.00336182 -0.01394787  0.00507845  0.00076704]] 
+with regularization: 0.7 and learning rate: 0.8
+End training at - 07:59:17
+Total time for training is 0:00:28.335999
 
-Start training at -  07:57:43
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.01420073 -0.02224485  0.11706878  0.01801497  0.01919512]
- [ 0.08043143  0.08165838 -0.10908215 -0.08185608 -0.06588997]
- [-0.09597604 -0.08974087  0.03296304  0.09412196  0.07358144]] 
-with regularization: 0.1 and learning rate: 0.2
-End training at - 07:59:56
-Total time for training is 0:02:13.170505
+Start training at -  07:59:17
+minimum error: 0.13333333333333333 in epoch: 3 and weights are: [[ 0.00352482  0.00269088  0.012511   -0.00293395 -0.00031501]
+ [ 0.00219783  0.00066565  0.00145215 -0.00214041 -0.00044996]
+ [-0.00572264 -0.00335654 -0.01396315  0.00507436  0.00076496]] 
+with regularization: 0.5 and learning rate: 0.8
+End training at - 07:59:45
+Total time for training is 0:00:27.676675
 
-Start training at -  07:59:56
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.00480814 -0.01348982  0.11209572  0.00862868  0.01774611]
- [ 0.08331425  0.08483034 -0.11170612 -0.08467391 -0.07718151]
- [-0.1058919  -0.09922466  0.036334    0.10387814  0.08480203]] 
-with regularization: 0.001 and learning rate: 0.2
-End training at - 08:02:01
-Total time for training is 0:02:04.749507
+Start training at -  07:59:45
+minimum error: 0.10833333333333334 in epoch: 3 and weights are: [[ 0.00350195  0.00266233  0.01254525 -0.00291286 -0.00038   ]
+ [ 0.00216959  0.00063387  0.00137989 -0.0021108  -0.00046996]
+ [-0.00567154 -0.0032962  -0.01392514  0.00502366  0.00084996]] 
+with regularization: 0.3 and learning rate: 0.8
+End training at - 08:00:14
+Total time for training is 0:00:28.713035
 
-Start training at -  08:02:01
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00295956 -0.00831619  0.06915984  0.005317    0.01093423]
- [ 0.06002677  0.06111824 -0.08048741 -0.06100657 -0.05560469]
- [-0.06533957 -0.06122467  0.02242065  0.064097    0.05233347]] 
-with regularization: 0.0001 and learning rate: 0.2
-End training at - 08:04:08
-Total time for training is 0:02:06.734346
+Start training at -  08:00:14
+minimum error: 0.08333333333333333 in epoch: 2 and weights are: [[ 0.00350986  0.00268332  0.01254004 -0.0029204  -0.00036369]
+ [ 0.00217559  0.00064169  0.00140593 -0.00212112 -0.00047518]
+ [-0.00568545 -0.00332501 -0.01394597  0.00504151  0.00083886]] 
+with regularization: 0.1 and learning rate: 0.8
+End training at - 08:00:46
+Total time for training is 0:00:32.380064
 
-Start training at -  08:04:08
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.00044144 -0.001236    0.01025976  0.00079108  0.00162323]
- [ 0.00997747  0.01015884 -0.01337647 -0.01014026 -0.00924156]
- [-0.00969193 -0.00908156  0.00332568  0.00950761  0.00776272]] 
-with regularization: 1e-05 and learning rate: 0.2
-End training at - 08:06:20
-Total time for training is 0:02:11.786125
+Start training at -  08:00:46
+minimum error: 0.10416666666666667 in epoch: 0 and weights are: [[ 0.00114883  0.00088084  0.004127   -0.00095484 -0.00011396]
+ [ 0.0007076   0.00019691  0.00043515 -0.00069146 -0.00015878]
+ [-0.00185643 -0.00107775 -0.00456215  0.0016463   0.00027273]] 
+with regularization: 0.001 and learning rate: 0.8
+End training at - 08:01:25
+Total time for training is 0:00:39.342076
 
-Start training at -  08:06:20
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-4.64238890e-10 -1.29762707e-09  1.07621040e-08  8.30964647e-10
-   1.70346195e-09]
- [ 1.06288147e-08  1.08220722e-08 -1.42499728e-08 -1.08022392e-08
-  -9.84474254e-09]
- [-1.01645760e-08 -9.52444526e-09  3.48786899e-09  9.97127476e-09
-   8.14128074e-09]] 
-with regularization: 1e-11 and learning rate: 0.2
-End training at - 08:08:32
-Total time for training is 0:02:12.634137
+Start training at -  08:01:25
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 1.35547379e-04  1.04319333e-04  4.88326524e-04 -1.12572685e-04
+  -1.41284615e-05]
+ [ 8.36775529e-05  2.27124269e-05  5.12302381e-05 -8.19623839e-05
+  -1.88443878e-05]
+ [-2.19224932e-04 -1.27031760e-04 -5.39556762e-04  1.94535069e-04
+   3.29728494e-05]] 
+with regularization: 0.0001 and learning rate: 0.8
+End training at - 08:01:56
+Total time for training is 0:00:30.802543
+
+Start training at -  08:01:56
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.8
+End training at - 08:02:25
+Total time for training is 0:00:29.261035
 
 Starting with new learning rate...
-Start training at -  08:08:32
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 0.03767629  0.01440119  0.23131308 -0.02768592  0.04821455]
- [ 0.19853823  0.20579878 -0.27238708 -0.20197153 -0.23096854]
- [-0.27479128 -0.25959231  0.09616678  0.26898787  0.22813227]] 
-with regularization: 0.6 and learning rate: 0.1
-End training at - 08:10:57
-Total time for training is 0:02:24.951015
+Start training at -  08:02:25
+minimum error: 0.13333333333333333 in epoch: 5 and weights are: [[ 0.00401706  0.00306179  0.01436971 -0.00334179 -0.00043452]
+ [ 0.00249084  0.00073039  0.00160049 -0.00242788 -0.00053602]
+ [-0.0065079  -0.00379218 -0.0159702   0.00576967  0.00097054]] 
+with regularization: 1 and learning rate: 0.7
+End training at - 08:02:55
+Total time for training is 0:00:29.247033
 
-Start training at -  08:10:57
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.06158622 -0.07516306  0.25085985  0.06890336  0.11072022]
- [ 0.16452273  0.16691095 -0.23405266 -0.16769925 -0.1968718 ]
- [-0.1545259  -0.14433919  0.05556684  0.15135085  0.13718079]] 
-with regularization: 0.4 and learning rate: 0.1
-End training at - 08:13:10
-Total time for training is 0:02:12.946339
+Start training at -  08:02:55
+minimum error: 0.10833333333333334 in epoch: 7 and weights are: [[ 0.00402277  0.00306997  0.01422791 -0.00335137 -0.00035672]
+ [ 0.00252264  0.00077211  0.00171251 -0.00245258 -0.0005199 ]
+ [-0.00654541 -0.00384208 -0.01594042  0.00580395  0.00087662]] 
+with regularization: 0.8 and learning rate: 0.7
+End training at - 08:03:21
+Total time for training is 0:00:26.301969
 
-Start training at -  08:13:10
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.05308665 -0.07082656  0.25970596  0.06068637  0.10399686]
- [ 0.20089769  0.20323754 -0.26618541 -0.20405766 -0.19410389]
- [-0.19234128 -0.17759372  0.06669752  0.18866024  0.13380769]] 
-with regularization: 0.2 and learning rate: 0.1
-End training at - 08:15:23
-Total time for training is 0:02:12.417782
+Start training at -  08:03:21
+minimum error: 0.08333333333333333 in epoch: 5 and weights are: [[ 0.00402229  0.00305457  0.01429097 -0.00335061 -0.00039294]
+ [ 0.00250375  0.00075384  0.00166004 -0.00243263 -0.00052964]
+ [-0.00652603 -0.00380841 -0.01595101  0.00578323  0.00092258]] 
+with regularization: 0.7 and learning rate: 0.7
+End training at - 08:03:49
+Total time for training is 0:00:27.843510
 
-Start training at -  08:15:23
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00986418 -0.02910102  0.23783965  0.01808212  0.02387901]
- [ 0.18360973  0.18685192 -0.24921453 -0.18673716 -0.16263984]
- [-0.22232656 -0.20706544  0.07693383  0.21805396  0.18379889]] 
+Start training at -  08:03:49
+minimum error: 0.13333333333333333 in epoch: 4 and weights are: [[ 0.00401706  0.00306179  0.01436971 -0.00334179 -0.00043452]
+ [ 0.00249084  0.00073039  0.00160049 -0.00242788 -0.00053602]
+ [-0.0065079  -0.00379218 -0.0159702   0.00576967  0.00097054]] 
+with regularization: 0.5 and learning rate: 0.7
+End training at - 08:04:17
+Total time for training is 0:00:28.395003
+
+Start training at -  08:04:17
+minimum error: 0.125 in epoch: 2 and weights are: [[ 0.00402155  0.00307663  0.01427696 -0.00334669 -0.00037593]
+ [ 0.00251169  0.00075242  0.00168892 -0.0024437  -0.00054783]
+ [-0.00653324 -0.00382905 -0.01596588  0.00579039  0.00092376]] 
+with regularization: 0.3 and learning rate: 0.7
+End training at - 08:04:44
+Total time for training is 0:00:27.194996
+
+Start training at -  08:04:44
+minimum error: 0.10833333333333334 in epoch: 4 and weights are: [[ 0.00402277  0.00306997  0.01422791 -0.00335137 -0.00035672]
+ [ 0.00252264  0.00077211  0.00171251 -0.00245258 -0.0005199 ]
+ [-0.00654541 -0.00384208 -0.01594042  0.00580395  0.00087662]] 
+with regularization: 0.1 and learning rate: 0.7
+End training at - 08:05:14
+Total time for training is 0:00:29.300001
+
+Start training at -  08:05:14
+minimum error: 0.10833333333333334 in epoch: 0 and weights are: [[ 0.00117681  0.00090099  0.00423144 -0.00097794 -0.00011883]
+ [ 0.00072325  0.00020149  0.00043369 -0.00070731 -0.00015624]
+ [-0.00190006 -0.00110248 -0.00466513  0.00168524  0.00027507]] 
+with regularization: 0.001 and learning rate: 0.7
+End training at - 08:05:43
+Total time for training is 0:00:29.784033
+
+Start training at -  08:05:43
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 1.35876645e-04  1.04574244e-04  4.89550542e-04 -1.12844659e-04
+  -1.41191856e-05]
+ [ 8.38727025e-05  2.27559354e-05  5.13473466e-05 -8.21545845e-05
+  -1.89352769e-05]
+ [-2.19749348e-04 -1.27330180e-04 -5.40897889e-04  1.94999243e-04
+   3.30544625e-05]] 
+with regularization: 0.0001 and learning rate: 0.7
+End training at - 08:06:12
+Total time for training is 0:00:28.045659
+
+Start training at -  08:06:12
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.7
+End training at - 08:06:36
+Total time for training is 0:00:24.685999
+
+Starting with new learning rate...
+Start training at -  08:06:36
+minimum error: 0.08333333333333333 in epoch: 5 and weights are: [[ 0.0056037   0.00426508  0.01992774 -0.00466321 -0.00058905]
+ [ 0.00350388  0.00104484  0.00237604 -0.00340673 -0.00078117]
+ [-0.00910759 -0.00530992 -0.02230378  0.00806994  0.00137023]] 
+with regularization: 1 and learning rate: 0.5
+End training at - 08:07:02
+Total time for training is 0:00:26.215995
+
+Start training at -  08:07:02
+minimum error: 0.13333333333333333 in epoch: 3 and weights are: [[ 0.00563971  0.00430542  0.02001761 -0.00469432 -0.00050401]
+ [ 0.00351653  0.00106504  0.00232344 -0.00342466 -0.00071993]
+ [-0.00915623 -0.00537046 -0.02234104  0.00811898  0.00122394]] 
+with regularization: 0.8 and learning rate: 0.5
+End training at - 08:07:35
+Total time for training is 0:00:32.172924
+
+Start training at -  08:07:35
+minimum error: 0.13333333333333333 in epoch: 4 and weights are: [[ 0.00562389  0.00428651  0.02011759 -0.00467851 -0.00060833]
+ [ 0.00348717  0.00102255  0.00224069 -0.00339903 -0.00075042]
+ [-0.00911106 -0.00530906 -0.02235828  0.00807754  0.00135875]] 
+with regularization: 0.7 and learning rate: 0.5
+End training at - 08:08:04
+Total time for training is 0:00:28.931002
+
+Start training at -  08:08:04
+minimum error: 0.08333333333333333 in epoch: 4 and weights are: [[ 0.0056037   0.00426508  0.01992774 -0.00466321 -0.00058905]
+ [ 0.00350388  0.00104484  0.00237604 -0.00340673 -0.00078117]
+ [-0.00910759 -0.00530992 -0.02230378  0.00806994  0.00137023]] 
+with regularization: 0.5 and learning rate: 0.5
+End training at - 08:08:33
+Total time for training is 0:00:28.982778
+
+Start training at -  08:08:33
+minimum error: 0.10416666666666667 in epoch: 4 and weights are: [[ 0.00561358  0.00430636  0.02005339 -0.00466776 -0.00060468]
+ [ 0.00350532  0.00104219  0.00230021 -0.00341885 -0.00073961]
+ [-0.0091189  -0.00534855 -0.0223536   0.00808661  0.00134429]] 
+with regularization: 0.3 and learning rate: 0.5
+End training at - 08:09:05
+Total time for training is 0:00:32.448003
+
+Start training at -  08:09:05
+minimum error: 0.14166666666666666 in epoch: 2 and weights are: [[ 0.00563971  0.00430542  0.02001761 -0.00469432 -0.00050401]
+ [ 0.00351653  0.00106504  0.00232344 -0.00342466 -0.00071993]
+ [-0.00915623 -0.00537046 -0.02234104  0.00811898  0.00122394]] 
+with regularization: 0.1 and learning rate: 0.5
+End training at - 08:09:33
+Total time for training is 0:00:28.409995
+
+Start training at -  08:09:33
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 0.00122653  0.00094224  0.00440535 -0.00101894 -0.00013405]
+ [ 0.00076011  0.00021393  0.00047308 -0.00074325 -0.0001674 ]
+ [-0.00198664 -0.00115617 -0.00487843  0.00176219  0.00030145]] 
+with regularization: 0.001 and learning rate: 0.5
+End training at - 08:10:03
+Total time for training is 0:00:29.556965
+
+Start training at -  08:10:03
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 1.36535263e-04  1.05086157e-04  4.91997405e-04 -1.13389466e-04
+  -1.41754603e-05]
+ [ 8.42679505e-05  2.28436706e-05  5.15959801e-05 -8.25425738e-05
+  -1.90429229e-05]
+ [-2.20803213e-04 -1.27929828e-04 -5.43593385e-04  1.95932039e-04
+   3.32183832e-05]] 
+with regularization: 0.0001 and learning rate: 0.5
+End training at - 08:10:35
+Total time for training is 0:00:31.872014
+
+Start training at -  08:10:35
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.5
+End training at - 08:11:04
+Total time for training is 0:00:29.101455
+
+Starting with new learning rate...
+Start training at -  08:11:04
+minimum error: 0.10416666666666667 in epoch: 5 and weights are: [[ 0.00935597  0.00717726  0.03342232 -0.0077796  -0.0010078 ]
+ [ 0.0058422   0.00173698  0.00383368 -0.00569808 -0.00123268]
+ [-0.01519817 -0.00891424 -0.037256    0.01347768  0.00224049]] 
+with regularization: 1 and learning rate: 0.3
+End training at - 08:11:34
+Total time for training is 0:00:29.915000
+
+Start training at -  08:11:34
+minimum error: 0.10833333333333334 in epoch: 3 and weights are: [[ 0.00933853  0.00709956  0.033454   -0.00776763 -0.00101333]
+ [ 0.00578557  0.00169031  0.00367971 -0.0056288  -0.00125324]
+ [-0.01512409 -0.00878987 -0.03713371  0.01339643  0.00226656]] 
+with regularization: 0.8 and learning rate: 0.3
+End training at - 08:12:06
+Total time for training is 0:00:32.145683
+
+Start training at -  08:12:06
+minimum error: 0.125 in epoch: 2 and weights are: [[ 0.00938362  0.00717881  0.03331291 -0.00780895 -0.00087716]
+ [ 0.00586061  0.00175565  0.00394081 -0.00570196 -0.00127828]
+ [-0.01524423 -0.00893446 -0.03725372  0.01351091  0.00215544]] 
+with regularization: 0.7 and learning rate: 0.3
+End training at - 08:12:34
+Total time for training is 0:00:28.245996
+
+Start training at -  08:12:34
+minimum error: 0.10416666666666667 in epoch: 4 and weights are: [[ 0.00935597  0.00717726  0.03342232 -0.0077796  -0.0010078 ]
+ [ 0.0058422   0.00173698  0.00383368 -0.00569808 -0.00123268]
+ [-0.01519817 -0.00891424 -0.037256    0.01347768  0.00224049]] 
+with regularization: 0.5 and learning rate: 0.3
+End training at - 08:13:03
+Total time for training is 0:00:28.845681
+
+Start training at -  08:13:03
+minimum error: 0.09583333333333334 in epoch: 4 and weights are: [[ 0.0093405   0.00711814  0.03350896 -0.00776407 -0.00106249]
+ [ 0.00575763  0.0016944   0.00368123 -0.00561036 -0.00134854]
+ [-0.01509813 -0.00881255 -0.03719018  0.01337443  0.00241103]] 
+with regularization: 0.3 and learning rate: 0.3
+End training at - 08:13:30
+Total time for training is 0:00:27.196446
+
+Start training at -  08:13:30
+minimum error: 0.14166666666666666 in epoch: 1 and weights are: [[ 0.00933856  0.00709959  0.03345397 -0.00776767 -0.00101327]
+ [ 0.0057855   0.00169024  0.00367976 -0.00562873 -0.00125337]
+ [-0.01512406 -0.00878984 -0.03713373  0.0133964   0.00226664]] 
+with regularization: 0.1 and learning rate: 0.3
+End training at - 08:13:56
+Total time for training is 0:00:26.012967
+
+Start training at -  08:13:56
+minimum error: 0.08333333333333333 in epoch: 0 and weights are: [[ 0.00128696  0.00098819  0.00462727 -0.00106919 -0.00013189]
+ [ 0.00079436  0.00021987  0.00048743 -0.00077726 -0.00017566]
+ [-0.00208131 -0.00120806 -0.0051147   0.00184645  0.00030755]] 
+with regularization: 0.001 and learning rate: 0.3
+End training at - 08:14:23
+Total time for training is 0:00:26.265330
+
+Start training at -  08:14:23
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 1.37175165e-04  1.05870600e-04  4.95247981e-04 -1.13854185e-04
+  -1.46621102e-05]
+ [ 8.46889597e-05  2.26644475e-05  5.10664707e-05 -8.30163403e-05
+  -1.87458458e-05]
+ [-2.21864125e-04 -1.28535047e-04 -5.46314452e-04  1.96870525e-04
+   3.34079559e-05]] 
+with regularization: 0.0001 and learning rate: 0.3
+End training at - 08:14:52
+Total time for training is 0:00:29.574812
+
+Start training at -  08:14:52
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.3
+End training at - 08:15:20
+Total time for training is 0:00:27.789062
+
+Starting with new learning rate...
+Start training at -  08:15:20
+minimum error: 0.13333333333333333 in epoch: 1 and weights are: [[ 0.02819853  0.02152708  0.10008804 -0.0234716  -0.00252006]
+ [ 0.01758263  0.00532521  0.01161718 -0.01712329 -0.00359964]
+ [-0.04578116 -0.02685229 -0.11170522  0.04059489  0.00611971]] 
+with regularization: 1 and learning rate: 0.1
+End training at - 08:15:49
+Total time for training is 0:00:28.730103
+
+Start training at -  08:15:49
+minimum error: 0.08333333333333333 in epoch: 2 and weights are: [[ 0.02807889  0.02146654  0.10032032 -0.02336316 -0.00290949]
+ [ 0.01740474  0.00513355  0.01124741 -0.01696892 -0.0038014 ]
+ [-0.04548363 -0.0266001  -0.11156773  0.04033209  0.0067109 ]] 
+with regularization: 0.8 and learning rate: 0.1
+End training at - 08:16:21
+Total time for training is 0:00:31.956106
+
+Start training at -  08:16:21
+minimum error: 0.10833333333333334 in epoch: 4 and weights are: [[ 0.02815937  0.02148976  0.09959539 -0.02345957 -0.00249701]
+ [ 0.01765847  0.00540478  0.01198755 -0.01716807 -0.0036393 ]
+ [-0.04581784 -0.02689454 -0.11158294  0.04062764  0.00613631]] 
+with regularization: 0.7 and learning rate: 0.1
+End training at - 08:16:48
+Total time for training is 0:00:26.996060
+
+Start training at -  08:16:48
+minimum error: 0.14166666666666666 in epoch: 2 and weights are: [[ 0.02819853  0.02152708  0.10008804 -0.0234716  -0.00252006]
+ [ 0.01758263  0.00532521  0.01161718 -0.01712329 -0.00359964]
+ [-0.04578116 -0.02685229 -0.11170522  0.04059489  0.00611971]] 
+with regularization: 0.5 and learning rate: 0.1
+End training at - 08:17:19
+Total time for training is 0:00:30.977292
+
+Start training at -  08:17:19
+minimum error: 0.14166666666666666 in epoch: 1 and weights are: [[ 0.02801569  0.02129878  0.10036192 -0.023303   -0.00303982]
+ [ 0.01735649  0.00507073  0.01103928 -0.0168862  -0.0037601 ]
+ [-0.04537218 -0.02636951 -0.11140119  0.0401892   0.00679992]] 
+with regularization: 0.3 and learning rate: 0.1
+End training at - 08:17:49
+Total time for training is 0:00:30.479265
+
+Start training at -  08:17:49
+minimum error: 0.12083333333333333 in epoch: 1 and weights are: [[ 0.02788729  0.02133721  0.09968864 -0.02319545 -0.00287277]
+ [ 0.01733371  0.00517341  0.01112214 -0.0169195  -0.00348917]
+ [-0.04522101 -0.02651062 -0.11081079  0.04011495  0.00636194]] 
 with regularization: 0.1 and learning rate: 0.1
-End training at - 08:17:34
-Total time for training is 0:02:11.490615
+End training at - 08:18:16
+Total time for training is 0:00:27.386072
 
-Start training at -  08:17:34
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.009587   -0.02680721  0.22237689  0.01716484  0.03521647]
- [ 0.16631272  0.16933829 -0.22299643 -0.1690272  -0.1540556 ]
- [-0.21000558 -0.19677993  0.07206182  0.20601196  0.16819566]] 
+Start training at -  08:18:16
+minimum error: 0.0875 in epoch: 0 and weights are: [[ 0.00134821  0.00103715  0.00485886 -0.00111966 -0.00014205]
+ [ 0.00083367  0.00022746  0.0005104  -0.00081648 -0.00018136]
+ [-0.00218187 -0.00126461 -0.00536926  0.00193614  0.00032341]] 
 with regularization: 0.001 and learning rate: 0.1
-End training at - 08:19:46
-Total time for training is 0:02:11.361986
+End training at - 08:18:47
+Total time for training is 0:00:30.837381
 
-Start training at -  08:19:46
-minimum error: 0.65 in epoch: 0 and weights are: [[-0.00368545 -0.01030464  0.08547247  0.00659805  0.01352838]
- [ 0.07857362  0.08000277 -0.10534539 -0.07985575 -0.07277907]
- [-0.08072693 -0.07564306  0.02770062  0.07919173  0.0646585 ]] 
+Start training at -  08:18:47
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.37902423e-04  1.06500110e-04  4.96588017e-04 -1.14493672e-04
+  -1.47096431e-05]
+ [ 8.54693362e-05  2.29520974e-05  5.27088646e-05 -8.37204782e-05
+  -1.98995766e-05]
+ [-2.23371759e-04 -1.29452207e-04 -5.49296882e-04  1.98214150e-04
+   3.46092197e-05]] 
 with regularization: 0.0001 and learning rate: 0.1
-End training at - 08:22:02
-Total time for training is 0:02:16.753766
+End training at - 08:19:16
+Total time for training is 0:00:29.095952
 
-Start training at -  08:22:02
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00044647 -0.00126027  0.01050154  0.00080453  0.00165909]
- [ 0.01029017  0.01047748 -0.01379867 -0.01045818 -0.00953321]
- [-0.00992449 -0.00929948  0.00340549  0.00973576  0.00794898]] 
-with regularization: 1e-05 and learning rate: 0.1
-End training at - 08:24:18
-Total time for training is 0:02:15.253647
-
-Start training at -  08:24:18
-minimum error: 0.4166666666666667 in epoch: 0 and weights are: [[-4.59068578e-10 -1.29240252e-09  1.07574948e-08  8.25799701e-10
-   1.70031963e-09]
- [ 1.06236447e-08  1.08168479e-08 -1.42453637e-08 -1.07970746e-08
-  -9.84160048e-09]
- [-1.01645762e-08 -9.52444549e-09  3.48786908e-09  9.97127500e-09
-   8.14128094e-09]] 
-with regularization: 1e-11 and learning rate: 0.1
-End training at - 08:26:29
-Total time for training is 0:02:11.566202
+Start training at -  08:19:16
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.1
+End training at - 08:19:44
+Total time for training is 0:00:27.440002
 
 Starting with new learning rate...
-Start training at -  08:26:29
-minimum error: 0.5083333333333333 in epoch: 0 and weights are: [[ 0.89186734  0.28580054  3.06584407 -0.76937623  0.31623149]
- [ 2.89709852  2.97745342 -3.5584054  -2.92767128 -1.16632652]
- [-4.72074934 -4.21976289  1.63812221  4.63879108  1.23250498]] 
-with regularization: 0.6 and learning rate: 0.001
-End training at - 08:28:36
-Total time for training is 0:02:06.754566
+Start training at -  08:19:44
+minimum error: 0.1125 in epoch: 0 and weights are: [[ 1.09650718  0.84025539  3.94234599 -0.91112558 -0.11686987]
+ [ 0.67565007  0.18935271  0.41554819 -0.66005152 -0.15200235]
+ [-1.77215726 -1.02960809 -4.35789418  1.5711771   0.26887222]] 
+with regularization: 1 and learning rate: 0.001
+End training at - 08:20:18
+Total time for training is 0:00:33.810006
 
-Start training at -  08:28:36
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 0.97926854  0.37401533  3.00435989 -0.8558991   0.29983409]
- [ 2.85984085  2.93356645 -3.50773529 -2.89057455 -1.15376398]
- [-4.77517929 -4.26778982  1.65429329  4.69263795  1.22507448]] 
-with regularization: 0.4 and learning rate: 0.001
-End training at - 08:30:43
-Total time for training is 0:02:07.079046
+Start training at -  08:20:18
+minimum error: 0.10416666666666667 in epoch: 0 and weights are: [[ 0.91906649  0.70467358  3.30160161 -0.7638758  -0.09116742]
+ [ 0.56607854  0.15752422  0.34811851 -0.55316778 -0.12702036]
+ [-1.48514503 -0.8621978  -3.64972012  1.31704357  0.21818778]] 
+with regularization: 0.8 and learning rate: 0.001
+End training at - 08:20:51
+Total time for training is 0:00:33.042608
 
-Start training at -  08:30:43
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 0.96347246  0.34335308  3.00483313 -0.84176247  0.31182741]
- [ 2.87603728  2.95529156 -3.52262233 -2.90610751 -1.12616769]
- [-4.77944712 -4.26383474  1.67019015  4.69772775  1.18113573]] 
-with regularization: 0.2 and learning rate: 0.001
-End training at - 08:32:54
-Total time for training is 0:02:10.585713
+Start training at -  08:20:51
+minimum error: 0.10833333333333334 in epoch: 0 and weights are: [[ 0.82376823  0.63069151  2.96200621 -0.68455633 -0.08318176]
+ [ 0.5062742   0.14104324  0.30358592 -0.49511417 -0.10936669]
+ [-1.33004243 -0.77173475 -3.26559213  1.17967051  0.19254845]] 
+with regularization: 0.7 and learning rate: 0.001
+End training at - 08:21:21
+Total time for training is 0:00:30.686005
 
-Start training at -  08:32:54
-minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[ 0.99712709  0.36903988  2.99003189 -0.8756673   0.2841515 ]
- [ 2.86821525  2.95274358 -3.51161028 -2.89795037 -1.09936201]
- [-4.8006085  -4.28402366  1.66986262  4.71871867  1.1795318 ]] 
+Start training at -  08:21:21
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 0.61326729  0.47112017  2.20267713 -0.50946837 -0.06702293]
+ [ 0.38005312  0.1069639   0.2365378  -0.37162687 -0.08370244]
+ [-0.9933204  -0.57808407 -2.43921493  0.88109524  0.15072536]] 
+with regularization: 0.5 and learning rate: 0.001
+End training at - 08:21:54
+Total time for training is 0:00:32.309029
+
+Start training at -  08:21:54
+minimum error: 0.08333333333333333 in epoch: 0 and weights are: [[ 0.38608677  0.29645763  1.38818182 -0.32075587 -0.03956721]
+ [ 0.23830747  0.06596087  0.14622948 -0.23317849 -0.05269832]
+ [-0.62439424 -0.3624185  -1.5344113   0.55393437  0.09226553]] 
+with regularization: 0.3 and learning rate: 0.001
+End training at - 08:22:23
+Total time for training is 0:00:29.370965
+
+Start training at -  08:22:23
+minimum error: 0.0875 in epoch: 0 and weights are: [[ 0.13482063  0.10371525  0.48588581 -0.11196593 -0.01420524]
+ [ 0.08336652  0.02274554  0.05103998 -0.08164847 -0.0181356 ]
+ [-0.21818715 -0.12646079 -0.53692578  0.19361439  0.03234084]] 
 with regularization: 0.1 and learning rate: 0.001
-End training at - 08:35:11
-Total time for training is 0:02:17.268230
+End training at - 08:22:52
+Total time for training is 0:00:29.315035
 
-Start training at -  08:35:11
-minimum error: 0.675 in epoch: 0 and weights are: [[-0.04532494 -0.12669495  1.05080049  0.08113151  0.16641949]
- [ 1.02968328  1.04840526 -1.38050308 -1.04648434 -0.95382331]
- [-0.99244843 -0.92994737  0.3405484   0.97357489  0.79489794]] 
+Start training at -  08:22:52
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.00138206  0.00106736  0.00497716 -0.00114744 -0.00014699]
+ [ 0.00085649  0.00022991  0.00052816 -0.00083897 -0.00019987]
+ [-0.00223855 -0.00129727 -0.00550532  0.00198642  0.00034686]] 
 with regularization: 0.001 and learning rate: 0.001
-End training at - 08:37:24
-Total time for training is 0:02:13.584067
+End training at - 08:23:23
+Total time for training is 0:00:30.549989
 
-Start training at -  08:37:24
-minimum error: 0.6625 in epoch: 0 and weights are: [[-0.00462473 -0.01293862  0.10736133  0.00828334  0.01699579]
- [ 0.10594329  0.10786969 -0.1420443  -0.10767215 -0.09813604]
- [-0.10140221 -0.09501624  0.03479512  0.09947383  0.08121774]] 
+Start training at -  08:23:23
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.38236354e-04  1.06759493e-04  4.97828599e-04 -1.14769407e-04
+  -1.46977014e-05]
+ [ 8.56667381e-05  2.29950176e-05  5.28270842e-05 -8.39150318e-05
+  -1.99955124e-05]
+ [-2.23903092e-04 -1.29754511e-04 -5.50655683e-04  1.98684439e-04
+   3.46932138e-05]] 
 with regularization: 0.0001 and learning rate: 0.001
-End training at - 08:39:37
-Total time for training is 0:02:12.888209
+End training at - 08:23:51
+Total time for training is 0:00:27.733036
 
-Start training at -  08:39:37
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00045831 -0.00129125  0.0107541   0.00082496  0.0016999 ]
- [ 0.01061961  0.01081256 -0.01424001 -0.01079299 -0.00983845]
- [-0.01016214 -0.00952216  0.00348703  0.00996888  0.00813933]] 
-with regularization: 1e-05 and learning rate: 0.001
-End training at - 08:41:54
-Total time for training is 0:02:16.596544
-
-Start training at -  08:41:54
-minimum error: 0.35833333333333334 in epoch: 0 and weights are: [[-4.60389109e-10 -1.29373413e-09  1.07581864e-08  8.27094310e-10
-   1.70078602e-09]
- [ 1.06249656e-08  1.08181798e-08 -1.42460556e-08 -1.07983695e-08
-  -9.84206715e-09]
- [-1.01645765e-08 -9.52444572e-09  3.48786916e-09  9.97127524e-09
-   8.14128113e-09]] 
-with regularization: 1e-11 and learning rate: 0.001
-End training at - 08:44:10
-Total time for training is 0:02:16.394089
+Start training at -  08:23:51
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.001
+End training at - 08:24:19
+Total time for training is 0:00:28.763970
 
 Starting with new learning rate...
-Start training at -  08:44:10
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.00080015  0.20268183  2.93544648 -0.86968423  0.26500436]
- [ 3.1422196   3.15912201 -3.67323878 -3.18435811 -1.02681967]
- [-5.10648161 -4.33181718  1.8868365   5.03096925  1.08643598]] 
-with regularization: 0.6 and learning rate: 0.0001
-End training at - 08:46:21
-Total time for training is 0:02:10.737696
+Start training at -  08:24:19
+minimum error: 0.0875 in epoch: 0 and weights are: [[ 1.34820633  1.0371525   4.85885807 -1.11965927 -0.14205237]
+ [ 0.8336652   0.22745543  0.51039976 -0.81648466 -0.18135602]
+ [-2.18187152 -1.26460793 -5.36925783  1.93614393  0.32340838]] 
+with regularization: 1 and learning rate: 0.0001
+End training at - 08:24:52
+Total time for training is 0:00:32.804002
 
-Start training at -  08:46:21
-minimum error: 0.3875 in epoch: 0 and weights are: [[ 1.03026292  0.27888328  2.95271326 -0.89512364  0.25672642]
- [ 3.12991047  3.14664287 -3.69887248 -3.17470008 -1.02417084]
- [-5.03816837 -4.31026913  1.80979279  4.96055865  1.09933074]] 
-with regularization: 0.4 and learning rate: 0.0001
-End training at - 08:48:49
-Total time for training is 0:02:28.317848
+Start training at -  08:24:52
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 1.08437903  0.83455466  3.90661219 -0.90058148 -0.11302769]
+ [ 0.66942042  0.18169942  0.4098419  -0.65569907 -0.1507551 ]
+ [-1.75379945 -1.01625408 -4.3164541   1.55628055  0.26378279]] 
+with regularization: 0.8 and learning rate: 0.0001
+End training at - 08:25:24
+Total time for training is 0:00:31.829273
 
-Start training at -  08:48:49
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 1.09002854  0.48546314  3.00779524 -0.95187779  0.18950881]
- [ 3.15937332  3.18207522 -3.85065397 -3.20665276 -1.19512424]
- [-4.89156646 -4.31683729  1.64412392  4.81029571  1.32769913]] 
-with regularization: 0.2 and learning rate: 0.0001
-End training at - 08:51:15
-Total time for training is 0:02:25.965519
+Start training at -  08:25:24
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 0.95113652  0.73201971  3.42685379 -0.78991261 -0.0988343 ]
+ [ 0.58710892  0.15929155  0.35943143 -0.57508209 -0.13254694]
+ [-1.53824543 -0.89131126 -3.78628522  1.3649947   0.23138124]] 
+with regularization: 0.7 and learning rate: 0.0001
+End training at - 08:25:58
+Total time for training is 0:00:34.250846
 
-Start training at -  08:51:15
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 1.1511526   0.64571124  2.9091143  -1.01395608 -0.13330696]
- [ 3.2006162   3.23634476 -4.00375547 -3.2489862  -1.61027146]
- [-4.75005814 -4.28613533  1.60207918  4.66714802  1.984182  ]] 
+Start training at -  08:25:58
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 0.68267631  0.52543079  2.45998703 -0.56694733 -0.0708773 ]
+ [ 0.42133975  0.11421835  0.2579799  -0.41271287 -0.09521461]
+ [-1.10401607 -0.63964914 -2.71796693  0.9796602   0.16609192]] 
+with regularization: 0.5 and learning rate: 0.0001
+End training at - 08:26:30
+Total time for training is 0:00:31.656939
+
+Start training at -  08:26:30
+minimum error: 0.09583333333333334 in epoch: 0 and weights are: [[ 0.4115255   0.3176118   1.48574394 -0.34156256 -0.04398633]
+ [ 0.25406688  0.06799334  0.15319941 -0.24904902 -0.05623754]
+ [-0.66559238 -0.38560514 -1.63894336  0.59061158  0.10022387]] 
+with regularization: 0.3 and learning rate: 0.0001
+End training at - 08:27:00
+Total time for training is 0:00:29.796000
+
+Start training at -  08:27:00
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.13790242  0.10650011  0.49658802 -0.11449367 -0.01470964]
+ [ 0.08546934  0.0229521   0.05270886 -0.08372048 -0.01989958]
+ [-0.22337176 -0.12945221 -0.54929688  0.19821415  0.03460922]] 
 with regularization: 0.1 and learning rate: 0.0001
-End training at - 08:54:00
-Total time for training is 0:02:45.081961
+End training at - 08:27:32
+Total time for training is 0:00:32.664204
 
-Start training at -  08:54:00
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.04631357 -0.12944881  1.07358126  0.08289693  0.16995801]
- [ 1.05949918  1.07875953 -1.42041111 -1.07678509 -0.98136059]
- [-1.01402211 -0.95016241  0.34795118  0.9947383   0.81217733]] 
+Start training at -  08:27:32
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.00138236  0.00106759  0.00497829 -0.00114769 -0.00014698]
+ [ 0.00085667  0.00022995  0.00052827 -0.00083915 -0.00019996]
+ [-0.00223903 -0.00129755 -0.00550656  0.00198684  0.00034693]] 
 with regularization: 0.001 and learning rate: 0.0001
-End training at - 08:56:35
-Total time for training is 0:02:34.795178
+End training at - 08:28:02
+Total time for training is 0:00:30.074468
 
-Start training at -  08:56:35
-minimum error: 0.675 in epoch: 0 and weights are: [[-0.00462825 -0.01296123  0.10759107  0.00829486  0.01702909]
- [ 0.10624123  0.10817429 -0.14245014 -0.10797516 -0.09841459]
- [-0.10162137 -0.0952216   0.03487032  0.09968883  0.08139328]] 
+Start training at -  08:28:02
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.38239395e-04  1.06761855e-04  4.97839895e-04 -1.14771918e-04
+  -1.46975921e-05]
+ [ 8.56685356e-05  2.29954084e-05  5.28281609e-05 -8.39168034e-05
+  -1.99963864e-05]
+ [-2.23907931e-04 -1.29757263e-04 -5.50668056e-04  1.98688721e-04
+   3.46939785e-05]] 
 with regularization: 0.0001 and learning rate: 0.0001
-End training at - 08:59:05
-Total time for training is 0:02:30.317935
+End training at - 08:28:31
+Total time for training is 0:00:28.792124
 
-Start training at -  08:59:05
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00045712 -0.00129036  0.0107549   0.00082384  0.00169889]
- [ 0.01062137  0.01081449 -0.01424257 -0.01079479 -0.0098399 ]
- [-0.01016433 -0.00952422  0.00348779  0.00997104  0.00814109]] 
-with regularization: 1e-05 and learning rate: 0.0001
-End training at - 09:01:18
-Total time for training is 0:02:12.141415
-
-Start training at -  09:01:18
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-4.63591679e-10 -1.29705381e-09  1.07615514e-08  8.30317392e-10
-   1.70368411e-09]
- [ 1.06281681e-08  1.08214995e-08 -1.42494206e-08 -1.08015926e-08
-  -9.84496524e-09]
- [-1.01645765e-08 -9.52444572e-09  3.48786916e-09  9.97127524e-09
-   8.14128113e-09]] 
-with regularization: 1e-11 and learning rate: 0.0001
-End training at - 09:03:40
-Total time for training is 0:02:22.307990
+Start training at -  08:28:31
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0.0001
+End training at - 08:29:05
+Total time for training is 0:00:33.932323
 
 Starting with new learning rate...
-Start training at -  09:03:40
-minimum error: 0.45416666666666666 in epoch: 0 and weights are: [[ 1.16982806  0.72015182  2.87803243 -1.03619909 -0.09476356]
- [ 3.27654006  3.31199248 -4.11461244 -3.32313999 -2.02124537]
- [-4.71545035 -4.30410262  1.58081562  4.63236962  2.29915161]] 
-with regularization: 0.6 and learning rate: 1e-05
-End training at - 09:06:01
-Total time for training is 0:02:21.288483
+Start training at -  08:29:05
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.38239733  1.06762118  4.9784115  -1.14772197 -0.1469758 ]
+ [ 0.85668735  0.22995452  0.5282828  -0.83917    -0.19996484]
+ [-2.23908468 -1.29757569 -5.50669431  1.98689197  0.34694063]] 
+with regularization: 1 and learning rate: 0
+End training at - 08:29:36
+Total time for training is 0:00:31.045003
 
-Start training at -  09:06:01
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.18616788  0.74768973  2.88462618 -1.05269081 -0.2138959 ]
- [ 3.31342752  3.36570798 -4.21487156 -3.36131914 -2.13394811]
- [-4.68765441 -4.30454334  1.5729889   4.60485168  2.47819158]] 
-with regularization: 0.4 and learning rate: 1e-05
-End training at - 09:08:20
-Total time for training is 0:02:18.579026
+Start training at -  08:29:36
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.10591786  0.85409694  3.9827292  -0.91817757 -0.11758064]
+ [ 0.68534988  0.18396361  0.42262624 -0.671336   -0.15997187]
+ [-1.79126774 -1.03806055 -4.40535545  1.58951357  0.27755251]] 
+with regularization: 0.8 and learning rate: 0
+End training at - 08:30:19
+Total time for training is 0:00:42.464987
 
-Start training at -  09:08:20
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.21987038  0.81277844  2.83190478 -1.08622179 -0.42100857]
- [ 3.31140576  3.37109076 -4.26636402 -3.3595284  -2.23590154]
- [-4.62986784 -4.28427959  1.56248278  4.54579223  2.72607181]] 
-with regularization: 0.2 and learning rate: 1e-05
-End training at - 09:10:37
-Total time for training is 0:02:17.277057
+Start training at -  08:30:19
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.96767813  0.74733482  3.48488805 -0.80340538 -0.10288306]
+ [ 0.59968115  0.16096816  0.36979796 -0.587419   -0.13997538]
+ [-1.56735928 -0.90830299 -3.85468602  1.39082438  0.24285844]] 
+with regularization: 0.7 and learning rate: 0
+End training at - 08:30:51
+Total time for training is 0:00:32.320010
 
-Start training at -  09:10:37
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.2305517   0.8413341   2.79655177 -1.09690782 -0.48452337]
- [ 3.31784305  3.37859908 -4.29193979 -3.36600628 -2.35217111]
- [-4.59848144 -4.27094674  1.56046621  4.51373331  2.87305963]] 
-with regularization: 0.1 and learning rate: 1e-05
-End training at - 09:13:19
-Total time for training is 0:02:42.074057
+Start training at -  08:30:51
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.69119866  0.53381059  2.48920575 -0.57386098 -0.0734879 ]
+ [ 0.42834368  0.11497726  0.2641414  -0.419585   -0.09998242]
+ [-1.11954234 -0.64878785 -2.75334715  0.99344598  0.17347032]] 
+with regularization: 0.5 and learning rate: 0
+End training at - 08:31:23
+Total time for training is 0:00:31.785176
 
-Start training at -  09:13:19
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.0463485  -0.12966222  1.07589691  0.08301224  0.17040076]
- [ 1.06247832  1.0817928  -1.42448762 -1.07981521 -0.98425577]
- [-1.01621374 -0.95221603  0.34870322  0.99688826  0.81393277]] 
-with regularization: 0.001 and learning rate: 1e-05
-End training at - 09:15:42
-Total time for training is 0:02:22.512140
+Start training at -  08:31:23
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.4147192   0.32028635  1.49352345 -0.34431659 -0.04409274]
+ [ 0.25700621  0.06898636  0.15848484 -0.251751   -0.05998945]
+ [-0.6717254  -0.38927271 -1.65200829  0.59606759  0.10408219]] 
+with regularization: 0.3 and learning rate: 0
+End training at - 08:31:56
+Total time for training is 0:00:33.116536
 
-Start training at -  09:15:42
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-0.00462281 -0.01295747  0.1076074   0.00829018  0.01702233]
- [ 0.10626529  0.10819878 -0.14248413 -0.10799969 -0.09843241]
- [-0.10164333 -0.09524217  0.03487785  0.09971036  0.08141086]] 
-with regularization: 0.0001 and learning rate: 1e-05
-End training at - 09:17:57
-Total time for training is 0:02:15.326472
+Start training at -  08:31:56
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.13823973  0.10676212  0.49784115 -0.1147722  -0.01469758]
+ [ 0.08566874  0.02299545  0.05282828 -0.083917   -0.01999648]
+ [-0.22390847 -0.12975757 -0.55066943  0.1986892   0.03469406]] 
+with regularization: 0.1 and learning rate: 0
+End training at - 08:32:26
+Total time for training is 0:00:30.391033
 
-Start training at -  09:17:57
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[-0.00046359 -0.00129698  0.0107614   0.00083031  0.00170368]
- [ 0.01062813  0.01082139 -0.01424925 -0.01080156 -0.00984493]
- [-0.01016455 -0.00952442  0.00348786  0.00997125  0.00814126]] 
-with regularization: 1e-05 and learning rate: 1e-05
-End training at - 09:20:07
-Total time for training is 0:02:10.470998
+Start training at -  08:32:26
+minimum error: 0.1 in epoch: 0 and weights are: [[ 0.0013824   0.00106762  0.00497841 -0.00114772 -0.00014698]
+ [ 0.00085669  0.00022995  0.00052828 -0.00083917 -0.00019996]
+ [-0.00223908 -0.00129758 -0.00550669  0.00198689  0.00034694]] 
+with regularization: 0.001 and learning rate: 0
+End training at - 08:32:53
+Total time for training is 0:00:26.509004
 
-Start training at -  09:20:07
-minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[-4.62293099e-10 -1.29566676e-09  1.07607217e-08  8.29031731e-10
-   1.70331768e-09]
- [ 1.06268696e-08  1.08201125e-08 -1.42485908e-08 -1.08003070e-08
-  -9.84459881e-09]
- [-1.01645765e-08 -9.52444572e-09  3.48786916e-09  9.97127524e-09
-   8.14128113e-09]] 
-with regularization: 1e-11 and learning rate: 1e-05
-End training at - 09:22:26
-Total time for training is 0:02:18.698041
+Start training at -  08:32:53
+minimum error: 0.1 in epoch: 0 and weights are: [[ 1.38239733e-04  1.06762118e-04  4.97841150e-04 -1.14772197e-04
+  -1.46975799e-05]
+ [ 8.56687353e-05  2.29954518e-05  5.28282805e-05 -8.39170002e-05
+  -1.99964835e-05]
+ [-2.23908468e-04 -1.29757569e-04 -5.50669431e-04  1.98689197e-04
+   3.46940634e-05]] 
+with regularization: 0.0001 and learning rate: 0
+End training at - 08:33:21
+Total time for training is 0:00:28.679002
 
-Starting with new learning rate...
-Start training at -  09:22:26
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.26774005  0.90657902  2.82010274 -1.13034878 -0.53031571]
- [ 3.34482261  3.4071611  -4.38918205 -3.39506372 -2.53365633]
- [-4.61256297 -4.31374044  1.56907972  4.52541283  3.06397227]] 
-with regularization: 0.6 and learning rate: 1e-11
-End training at - 09:24:59
-Total time for training is 0:02:33.245992
+Start training at -  08:33:21
+minimum error: 0.6541666666666667 in epoch: 0 and weights are: [[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]] 
+with regularization: 0 and learning rate: 0
+End training at - 08:33:49
+Total time for training is 0:00:27.821045
 
-Start training at -  09:24:59
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 1.22776805  0.86145359  2.79336781 -1.09248055 -0.62003417]
- [ 3.35889212  3.41807303 -4.35507218 -3.40753813 -2.47969236]
- [-4.58666038 -4.27952683  1.56170464  4.5000189   3.09972669]] 
-with regularization: 0.4 and learning rate: 1e-11
-End training at - 09:27:24
-Total time for training is 0:02:24.367728
-
-Start training at -  09:27:24
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[ 1.25464479  0.88531102  2.8001287  -1.11784951 -0.50100187]
- [ 3.3185639   3.37738652 -4.35876034 -3.36941513 -2.53587773]
- [-4.57320879 -4.26269764  1.55863178  4.48726475  3.03687967]] 
-with regularization: 0.2 and learning rate: 1e-11
-End training at - 09:29:46
-Total time for training is 0:02:22.253626
-
-Start training at -  09:29:46
-minimum error: 0.6708333333333333 in epoch: 0 and weights are: [[ 1.24655444  0.86922122  2.77431553 -1.11225669 -0.57317637]
- [ 3.32643512  3.39014764 -4.33479113 -3.3751294  -2.44604843]
- [-4.57298961 -4.25936891  1.56047566  4.48738613  3.01922483]] 
-with regularization: 0.1 and learning rate: 1e-11
-End training at - 09:32:10
-Total time for training is 0:02:24.219548
-
-Start training at -  09:32:10
-minimum error: 0.675 in epoch: 0 and weights are: [[-0.04648909 -0.12982837  1.07623504  0.0831605   0.1705061 ]
- [ 1.06294674  1.08227294 -1.42502195 -1.08028802 -0.98463421]
- [-1.01645765 -0.95244457  0.34878692  0.99712752  0.81412811]] 
-with regularization: 0.001 and learning rate: 1e-11
-End training at - 09:34:33
-Total time for training is 0:02:22.896895
-
-Start training at -  09:34:33
-minimum error: 0.3416666666666667 in epoch: 0 and weights are: [[-0.00461662 -0.01295001  0.10759247  0.00828368  0.01700808]
- [ 0.10626239  0.10819447 -0.14247116 -0.10799643 -0.09842089]
- [-0.10164576 -0.09524446  0.03487869  0.09971275  0.08141281]] 
-with regularization: 0.0001 and learning rate: 1e-11
-End training at - 09:37:00
-Total time for training is 0:02:26.550417
-
-Start training at -  09:37:00
-minimum error: 0.35833333333333334 in epoch: 0 and weights are: [[-0.00046037 -0.00129377  0.01075842  0.00082709  0.00170107]
- [ 0.01062495  0.01081822 -0.01424629 -0.01079837 -0.00984236]
- [-0.01016458 -0.00952445  0.00348787  0.00997128  0.00814128]] 
-with regularization: 1e-05 and learning rate: 1e-11
-End training at - 09:39:23
-Total time for training is 0:02:23.638001
-
-Start training at -  09:39:23
-minimum error: 0.32916666666666666 in epoch: 0 and weights are: [[-4.60383624e-10 -1.29391907e-09  1.07584477e-08  8.27091121e-10
-   1.70031967e-09]
- [ 1.06249601e-08  1.08183648e-08 -1.42463168e-08 -1.07983664e-08
-  -9.84160080e-09]
- [-1.01645765e-08 -9.52444572e-09  3.48786916e-09  9.97127524e-09
-   8.14128113e-09]] 
-with regularization: 1e-11 and learning rate: 1e-11
-End training at - 09:41:44
-Total time for training is 0:02:20.639002
-
+Minimum Error in all training is 0.08333333333333333 and the weights are [[ 0.00280185  0.00213254  0.00996387 -0.0023316  -0.00029453]
+ [ 0.00175194  0.00052242  0.00118802 -0.00170337 -0.00039059]
+ [-0.00455379 -0.00265496 -0.01115189  0.00403497  0.00068511]]
