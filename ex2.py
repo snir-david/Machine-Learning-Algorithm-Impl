@@ -1,6 +1,5 @@
 # (C) Snir David Nahari - 205686538
 import sys
-# from datetime import datetime
 import numpy as np
 
 
@@ -231,9 +230,6 @@ def svm(train_x, train_y, test_x):
 
     # training(train_x, train_y)
     # predicts
-    # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
-    #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
-    #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
     best_weights_found = np.array([([0.18710489, 0.00353916, 0.67677144, 0.69887273, 0.05898188, -0.34122238]),
                                    ([0.10580316, -0.45370831, 0.02953652, -0.15403748, -0.00902337, 0.31851379]),
                                    ([-0.29290805, 0.45016915, -0.70630796, -0.54483525, -0.04995851, 0.02270859])])
@@ -297,9 +293,6 @@ def passive_aggressive(train_x, train_y, test_x):
 
     # training(train_x, train_y)
     # predicts
-    # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
-    #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
-    #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
     best_weights_found = np.array([([0.61320707, -1.14797863, 4.24116836, 3.43345916, -0.23288381, -2.98588669]),
                                    ([0.31033628, 0.25195826, -1.34558459, -1.09893239, 0.41667218, 2.87038145]),
                                    ([-0.92354335, 0.89602037, -2.89558377, -2.33452677, - 0.18378837, 0.11550524])])
@@ -329,7 +322,7 @@ if __name__ == '__main__':
     pred_prec = perceptron(shuffled_x_1, shuffled_y, normal_x_1)
     pred_svm = svm(shuffled_x_1, shuffled_y, normal_x_1)
     pred_pa = passive_aggressive(shuffled_x_1, shuffled_y, normal_x_1)
-
+    # printing data
     out = open(output_file, '+w')
     for i in range(len(normal_test)):
         out.write(f"knn: {pred_knn[i]}, perceptron: {pred_prec[i]}, svm: {pred_svm[i]}, pa: {pred_pa[i]}\n")
