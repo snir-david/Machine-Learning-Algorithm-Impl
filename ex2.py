@@ -1,7 +1,5 @@
 # (C) Snir David Nahari - 205686538
-import collections
 import sys
-from datetime import datetime
 import numpy as np
 
 
@@ -12,6 +10,13 @@ def normalize_data(train_x):
     norm = np.linalg.norm(train_x, axis=0)
     normal_x = train_x / norm
     return normal_x
+
+
+def z_score(data):
+    mean = np.mean(data, axis=0)
+    std = np.std(data, axis=0)
+    normal_data = (data - mean) / std
+    return normal_data
 
 
 # shuffling data randomly
@@ -80,7 +85,7 @@ def knn(train_x, train_y, test_x, k):
             counter = find_class.count(class_y)
             if counter > max_count:
                 class_of_x = class_y
-        return class_of_x
+        return int(class_of_x)
 
     # this function was used to find best k for training set
     def training(train_x, train_y):
@@ -103,6 +108,7 @@ def knn(train_x, train_y, test_x, k):
     for x in test_x:
         predictions.append(classify_x(train_x, train_y, -1, x, k))
     return predictions
+
 
 # Perceptron algorithm - getting train data, finding weights
 # on test data - checking with weights found
@@ -150,23 +156,20 @@ def perceptron(train_x, train_y, test_x):
         run = end - start
         output.write(f'Total time for training is {run}\n\n')
 
-    training(train_x, train_y)
+    # training(train_x, train_y)
     # predicts
-    best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
-                                   ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
-                                   ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
+    best_weights_found = np.array([([-0.10061318, -4.39267569, 22.77108818, 12.26794959, -1.37759287, -9.]),
+                                   ([6.93356053, -0.6889391, -5.57647865, -2.04780874, 1.52745653, 15.]),
+                                   ([-6.83294735, 5.08161479, -17.19460953, -10.22014085, -0.14986366, -6.])])
     predictions = []
     for x in test_x:
         predictions.append(classify_x(x, best_weights_found))
     return predictions
 
+
 # SVM algorithm - getting train data, finding weights
 # on test data - checking with weights found
 def svm(train_x, train_y, test_x):
-    # return arg max on x with weights
-    def classify_x(classifies_x, weights):
-        return arg_max(classifies_x, weights)
-
     def find_weights_bias(train_x, train_y, eta_svm, lambda_svm, epochs):
         w_svm = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
         min_err_svm = np.inf
@@ -188,7 +191,7 @@ def svm(train_x, train_y, test_x):
                 # check error rate with current parameters
                 trained_xy = []
                 for i in range(len(train_x)):
-                    trained_xy.append((train_x[i], classify_x(train_x[i], w_svm)))
+                    trained_xy.append((train_x[i], arg_max(w_svm, train_x[i])))
                 err = get_error_rate(trained_xy, train_y)
                 # print(f'error rate is: {err}, in epoch: {epoch}')
                 if err < min_err_svm:
@@ -200,7 +203,8 @@ def svm(train_x, train_y, test_x):
 
     def training(train_x, train_y):
         output = open("svm_parma.txt", 'w+')
-        values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
+        # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
+        values = [1, 0.8, 0.5, 0.3, 0.1]
         min_err_arr = []
         best_w = []
         for i in range(len(values)):
@@ -224,23 +228,25 @@ def svm(train_x, train_y, test_x):
             f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
         output.close()
 
-    training(train_x, train_y)
+    # training(train_x, train_y)
     # predicts
     # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
     #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
     #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
-    # predictions = []
-    # for x in test_x:
-    #     predictions.append(classify_x(x, best_weights_found))
-    # return predictions
+    best_weights_found = np.array([([0.41180281, -0.04445775, 0.82146465, 0.93636237, 0.13005673, -0.16938147]),
+                                   ([-0.1231846, -0.35592704, -0.14056784, -0.38735731, 0.00592274, 0.24716909]),
+                                   ([-0.2886182, 0.40038479, -0.68089681, -0.54900506, -0.13597947, -0.07778762])])
+    predictions = []
+    for x in test_x:
+        predictions.append(arg_max(best_weights_found, x))
+    return predictions
+
 
 # Passive aggressive algorithm - getting train data, finding weights
 # on test data - checking with weights found
 def passive_aggressive(train_x, train_y, test_x):
-    def classify_x(classifies_x, weights):
-        return arg_max(classifies_x, weights)
-
     def find_weights_bias(train_x, train_y, epochs):
+        # initialize weights with arrays with num of features
         w_pa = np.array([np.zeros(len(train_x[0])), np.zeros(len(train_x[0])), np.zeros(len(train_x[0]))])
         min_err_svm = np.inf
         best_epoch_num = 0
@@ -251,65 +257,83 @@ def passive_aggressive(train_x, train_y, test_x):
                 y_hat = arg_max(w_pa, train_x[i], train_y[i])
                 loss = hinge_loss(w_pa, int(train_y[i]), train_x[i], y_hat)
                 if loss > 0:
-                    tau = (loss / 2 * (np.linalg.norm(train_x[i]) ** 2))
+                    tau = (loss / (2 * ((np.linalg.norm(train_x[i])) ** 2)))
                     w_pa[int(train_y[i])] += train_x[i] * tau
                     w_pa[y_hat] -= train_x[i] * tau
-                # check error rate with current parameters
-                trained_xy = []
-                for i in range(len(train_x)):
-                    trained_xy.append((train_x[i], classify_x(train_x[i], w_pa)))
-                err = get_error_rate(trained_xy, train_y)
-                if err < min_err_svm:
-                    min_err_svm = err
-                    best_epoch_num = epoch
-                    best_weight = w_pa
+                    # check error rate with current parameters
+                    trained_xy = []
+                    for i in range(len(train_x)):
+                        trained_xy.append((train_x[i], arg_max(w_pa, train_x[i])))
+                    err = get_error_rate(trained_xy, train_y)
+                    if err < min_err_svm:
+                        min_err_svm = err
+                        best_epoch_num = epoch
+                        best_weight = w_pa
         return best_weight, min_err_svm, best_epoch_num
 
     def training(train_x, train_y):
         output = open("pa_parma.txt", 'w+')
         min_err_arr = []
         best_w = []
-        for i in range(5):
-            epoch = 100
-            output.write(f'Starting new iteration...\n')
-            start = datetime.now()
-            st_current_time = start.strftime("%H:%M:%S")
-            output.write(f'Start training at -  {st_current_time}\n')
-            w, min_err, ep = find_weights_bias(train_x, train_y, epoch)
-            min_err_arr.append(min_err)
-            best_w.append(w)
-            output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
-            end = datetime.now()
-            end_current_time = end.strftime("%H:%M:%S")
-            output.write(f'End training at - {end_current_time}\n')
-            run = end - start
-            output.write(f'Total time for training is {run}\n\n')
-            epoch += 100
+        epoch = 20
+        output.write(f'Starting new iteration...\n')
+        start = datetime.now()
+        st_current_time = start.strftime("%H:%M:%S")
+        output.write(f'Start training at -  {st_current_time}\n')
+        w, min_err, ep = find_weights_bias(train_x, train_y, epoch)
+        min_err_arr.append(min_err)
+        best_w.append(w)
+        output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
+        end = datetime.now()
+        end_current_time = end.strftime("%H:%M:%S")
+        output.write(f'End training at - {end_current_time}\n')
+        run = end - start
+        output.write(f'Total time for training is {run}\n\n')
         min_e = min(min_err_arr)
         output.write(
             f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
         output.close()
 
-    training(train_x, train_y)
+    # training(train_x, train_y)
     # predicts
     # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
     #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
     #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
-    # predictions = []
-    # for x in test_x:
-    #     predictions.append(classify_x(x, best_weights_found))
-    # return predictions
+    best_weights_found = np.array([([0.61320707, -1.14797863, 4.24116836, 3.43345916, -0.23288381, -2.98588669]),
+                                   ([0.31033628, 0.25195826, -1.34558459, -1.09893239, 0.41667218, 2.87038145]),
+                                   ([-0.92354335, 0.89602037, -2.89558377, -2.33452677, - 0.18378837, 0.11550524])])
+    predictions = []
+    for x in test_x:
+        predictions.append(arg_max(best_weights_found, x))
+    return predictions
 
 
 if __name__ == '__main__':
     train_x, train_y, test_s, output_file = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    # loading data
     train_x = np.loadtxt(train_x, delimiter=",")
     train_y = np.loadtxt(train_y, delimiter=",")
-    test = np.loadtxt(test_s, delimiter=",")
-    normal_x = normalize_data(train_x)
+    test_s = np.loadtxt(test_s, delimiter=",")
+    # test_y = np.loadtxt('test_y.txt', delimiter=",")
+    # normalizing and shuffle data
+    normal_x = z_score(train_x)
+    normal_test = z_score(test_s)
     shuffled_x, shuffled_y = shuffle_data(normal_x, train_y)
-    normal_test = normalize_data(test)
-    # pred_knn = knn(train_x, train_y, test, 1)
-    pred_prec = perceptron(shuffled_x, shuffled_y, normal_test)
-    # svm_res = svm(shuffled_x, shuffled_y, normal_test)
-    # pred_pa = passive_aggressive(shuffled_x, shuffled_y, normal_test)
+    # adding bias for train and test
+    shuffled_x_1 = np.c_[shuffled_x, np.ones(len(shuffled_x))]
+    normal_x_1 = np.c_[normal_test, np.ones(len(normal_test))]
+
+    # predict test data
+    pred_knn = knn(train_x, train_y, test_s, 1)
+    pred_prec = perceptron(shuffled_x_1, shuffled_y, normal_x_1)
+    pred_svm = svm(shuffled_x_1, shuffled_y, normal_x_1)
+    pred_pa = passive_aggressive(shuffled_x_1, shuffled_y, normal_x_1)
+    # xy= []
+    # for i in range(len((normal_test))):
+    #     xy.append((normal_test[i], pred_pa[i]))
+    # err = get_error_rate(xy, test_y)
+
+    out = open(output_file, '+w')
+    for i in range(len(normal_test)):
+        out.write(f"knn: {pred_knn[i]}, perceptron: {pred_prec[i]}, svm: {pred_svm[i]}, pa: {pred_pa[i]}\n")
+    out.close()
