@@ -1,5 +1,6 @@
 # (C) Snir David Nahari - 205686538
 import sys
+# from datetime import datetime
 import numpy as np
 
 
@@ -203,9 +204,9 @@ def svm(train_x, train_y, test_x):
 
     def training(train_x, train_y):
         # output = open("svm_parma.txt", 'w+')
-        # # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
-        # values = [1, 0.8, 0.5, 0.3, 0.1]
-        # min_err_arr = []
+        # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
+        values = [1, 0.8, 0.5, 0.3, 0.1]
+        min_err_arr = []
         best_w = []
         # for i in range(len(values)):
         #     output.write(f'Starting with new learning rate...\n')
@@ -233,9 +234,9 @@ def svm(train_x, train_y, test_x):
     # best_weights_found = np.array([([3.92604469, -1.30013308, 5.41772099, -2.96697031, 0.08660937]),
     #                                ([-1.26011623, 0.28110985, -0.21050135, 0.62153066, -0.06218109]),
     #                                ([-2.66592846, 1.01902322, -5.20721964, 2.34543964, -0.02442828])])
-    best_weights_found = np.array([([0.41180281, -0.04445775, 0.82146465, 0.93636237, 0.13005673, -0.16938147]),
-                                   ([-0.1231846, -0.35592704, -0.14056784, -0.38735731, 0.00592274, 0.24716909]),
-                                   ([-0.2886182, 0.40038479, -0.68089681, -0.54900506, -0.13597947, -0.07778762])])
+    best_weights_found = np.array([([0.18710489, 0.00353916, 0.67677144, 0.69887273, 0.05898188, -0.34122238]),
+                                   ([0.10580316, -0.45370831, 0.02953652, -0.15403748, -0.00902337, 0.31851379]),
+                                   ([-0.29290805, 0.45016915, -0.70630796, -0.54483525, -0.04995851, 0.02270859])])
     predictions = []
     for x in test_x:
         predictions.append(arg_max(best_weights_found, x))
@@ -275,7 +276,7 @@ def passive_aggressive(train_x, train_y, test_x):
         # output = open("pa_parma.txt", 'w+')
         # min_err_arr = []
         # best_w = []
-        # epoch = 20
+        epoch = 20
         # output.write(f'Starting new iteration...\n')
         # start = datetime.now()
         # st_current_time = start.strftime("%H:%M:%S")
