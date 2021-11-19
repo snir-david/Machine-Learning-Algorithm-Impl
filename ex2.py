@@ -144,17 +144,17 @@ def perceptron(train_x, train_y, test_x):
         return best_weight, min_err_perc, best_epoch_num
 
     def training(train_x, train_y):
-        output = open("perceptron_parma.txt", 'w+')
-        start = datetime.now()
-        st_current_time = start.strftime("%H:%M:%S")
-        output.write(f'Start training at -  {st_current_time}\n')
+        # output = open("perceptron_parma.txt", 'w+')
+        # start = datetime.now()
+        # st_current_time = start.strftime("%H:%M:%S")
+        # output.write(f'Start training at -  {st_current_time}\n')
         w, min_err, ep = find_weights_bias(train_x, train_y, 1, 1000)
-        output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w}\n')
-        end = datetime.now()
-        end_current_time = end.strftime("%H:%M:%S")
-        output.write(f'End training at - {end_current_time}\n')
-        run = end - start
-        output.write(f'Total time for training is {run}\n\n')
+        # output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w}\n')
+        # end = datetime.now()
+        # end_current_time = end.strftime("%H:%M:%S")
+        # output.write(f'End training at - {end_current_time}\n')
+        # run = end - start
+        # output.write(f'Total time for training is {run}\n\n')
 
     # training(train_x, train_y)
     # predicts
@@ -202,31 +202,31 @@ def svm(train_x, train_y, test_x):
         return best_weight, min_err_svm, best_epoch_num
 
     def training(train_x, train_y):
-        output = open("svm_parma.txt", 'w+')
-        # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
-        values = [1, 0.8, 0.5, 0.3, 0.1]
-        min_err_arr = []
+        # output = open("svm_parma.txt", 'w+')
+        # # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
+        # values = [1, 0.8, 0.5, 0.3, 0.1]
+        # min_err_arr = []
         best_w = []
-        for i in range(len(values)):
-            output.write(f'Starting with new learning rate...\n')
-            for j in range(len(values)):
-                start = datetime.now()
-                st_current_time = start.strftime("%H:%M:%S")
-                output.write(f'Start training at -  {st_current_time}\n')
-                w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 50)
-                min_err_arr.append(min_err)
-                best_w.append(w)
-                output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n'
-                             f'with regularization: {values[j]} and learning rate: {values[i]}\n')
-                end = datetime.now()
-                end_current_time = end.strftime("%H:%M:%S")
-                output.write(f'End training at - {end_current_time}\n')
-                run = end - start
-                output.write(f'Total time for training is {run}\n\n')
-        min_e = min(min_err_arr)
-        output.write(
-            f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
-        output.close()
+        # for i in range(len(values)):
+        #     output.write(f'Starting with new learning rate...\n')
+        #     for j in range(len(values)):
+        #         start = datetime.now()
+        #         st_current_time = start.strftime("%H:%M:%S")
+        #         output.write(f'Start training at -  {st_current_time}\n')
+        #         w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 50)
+        #         min_err_arr.append(min_err)
+        #         best_w.append(w)
+        #         output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n'
+        #                      f'with regularization: {values[j]} and learning rate: {values[i]}\n')
+        #         end = datetime.now()
+        #         end_current_time = end.strftime("%H:%M:%S")
+        #         output.write(f'End training at - {end_current_time}\n')
+        #         run = end - start
+        #         output.write(f'Total time for training is {run}\n\n')
+        # min_e = min(min_err_arr)
+        # output.write(
+        #     f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
+        # output.close()
 
     # training(train_x, train_y)
     # predicts
@@ -272,27 +272,27 @@ def passive_aggressive(train_x, train_y, test_x):
         return best_weight, min_err_svm, best_epoch_num
 
     def training(train_x, train_y):
-        output = open("pa_parma.txt", 'w+')
-        min_err_arr = []
-        best_w = []
-        epoch = 20
-        output.write(f'Starting new iteration...\n')
-        start = datetime.now()
-        st_current_time = start.strftime("%H:%M:%S")
-        output.write(f'Start training at -  {st_current_time}\n')
+        # output = open("pa_parma.txt", 'w+')
+        # min_err_arr = []
+        # best_w = []
+        # epoch = 20
+        # output.write(f'Starting new iteration...\n')
+        # start = datetime.now()
+        # st_current_time = start.strftime("%H:%M:%S")
+        # output.write(f'Start training at -  {st_current_time}\n')
         w, min_err, ep = find_weights_bias(train_x, train_y, epoch)
-        min_err_arr.append(min_err)
-        best_w.append(w)
-        output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
-        end = datetime.now()
-        end_current_time = end.strftime("%H:%M:%S")
-        output.write(f'End training at - {end_current_time}\n')
-        run = end - start
-        output.write(f'Total time for training is {run}\n\n')
-        min_e = min(min_err_arr)
-        output.write(
-            f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
-        output.close()
+        # min_err_arr.append(min_err)
+        # best_w.append(w)
+        # output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n')
+        # end = datetime.now()
+        # end_current_time = end.strftime("%H:%M:%S")
+        # output.write(f'End training at - {end_current_time}\n')
+        # run = end - start
+        # output.write(f'Total time for training is {run}\n\n')
+        # min_e = min(min_err_arr)
+        # output.write(
+        #     f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
+        # output.close()
 
     # training(train_x, train_y)
     # predicts
@@ -328,10 +328,6 @@ if __name__ == '__main__':
     pred_prec = perceptron(shuffled_x_1, shuffled_y, normal_x_1)
     pred_svm = svm(shuffled_x_1, shuffled_y, normal_x_1)
     pred_pa = passive_aggressive(shuffled_x_1, shuffled_y, normal_x_1)
-    # xy= []
-    # for i in range(len((normal_test))):
-    #     xy.append((normal_test[i], pred_pa[i]))
-    # err = get_error_rate(xy, test_y)
 
     out = open(output_file, '+w')
     for i in range(len(normal_test)):
