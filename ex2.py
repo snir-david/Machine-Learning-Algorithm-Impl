@@ -1,5 +1,7 @@
 # (C) Snir David Nahari - 205686538
 import sys
+# from datetime import datetime
+
 import numpy as np
 
 
@@ -66,7 +68,7 @@ def knn(train_x, train_y, test_x, k):
         return elem[1]
 
     # knn method that classifies points
-    def classify_x(train_x, train_y, index, classifies_x, k):
+    def classify_x(train_x, train_y, classifies_x, k, index=-1):
         neighbors = []
         find_class = []
         class_of_x = -1
@@ -89,24 +91,27 @@ def knn(train_x, train_y, test_x, k):
 
     # this function was used to find best k for training set
     def training(train_x, train_y):
+        best_k = 0
         min_err = np.inf  # initialize current error as infinity
         # iterating from 1 to 100 try to find best k for current splitting
         sqrt_n = int(len(train_x) ** 0.5)
         for k in range(1, sqrt_n):
             trained_xy = []
             for i in range(len(train_x)):
-                trained_xy.append((train_x[i], classify_x(train_x, train_y, i, train_x[i], k)))
+                trained_xy.append((train_x[i],
+                                   classify_x(train_x=train_x, train_y=train_y, index=i, classifies_x=train_x[i],
+                                              k=round(k))))
             error = get_error_rate(trained_xy, train_y)
             if error < min_err:
                 min_err = error
                 best_k = k
         return best_k
 
-    # training(train_x, train_y)
+    best_k = training(train_x, train_y)
     # predicts new data labels
     predictions = []
     for x in test_x:
-        predictions.append(classify_x(train_x, train_y, -1, x, k))
+        predictions.append(classify_x(train_x, train_y, x, best_k))
     return predictions
 
 
@@ -148,19 +153,20 @@ def perceptron(train_x, train_y, test_x):
         # start = datetime.now()
         # st_current_time = start.strftime("%H:%M:%S")
         # output.write(f'Start training at -  {st_current_time}\n')
-        w, min_err, ep = find_weights_bias(train_x, train_y, 1, 1000)
+        w, min_err, ep = find_weights_bias(train_x, train_y, 1, 100)
         # output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w}\n')
         # end = datetime.now()
         # end_current_time = end.strftime("%H:%M:%S")
         # output.write(f'End training at - {end_current_time}\n')
         # run = end - start
         # output.write(f'Total time for training is {run}\n\n')
+        return w
 
-    # training(train_x, train_y)
+    best_weights_found = training(train_x, train_y)
     # predicts
-    best_weights_found = np.array([([-0.10061318, -4.39267569, 22.77108818, 12.26794959, -1.37759287, -9.]),
-                                   ([6.93356053, -0.6889391, -5.57647865, -2.04780874, 1.52745653, 15.]),
-                                   ([-6.83294735, 5.08161479, -17.19460953, -10.22014085, -0.14986366, -6.])])
+    # best_weights_found = np.array([([-0.10061318, -4.39267569, 22.77108818, 12.26794959, -1.37759287, -9.]),
+    #                                ([6.93356053, -0.6889391, -5.57647865, -2.04780874, 1.52745653, 15.]),
+    #                                ([-6.83294735, 5.08161479, -17.19460953, -10.22014085, -0.14986366, -6.])])
     predictions = []
     for x in test_x:
         predictions.append(classify_x(x, best_weights_found))
@@ -204,16 +210,15 @@ def svm(train_x, train_y, test_x):
     def training(train_x, train_y):
         # output = open("svm_parma.txt", 'w+')
         # values = [1, 0.8, 0.7, 0.5, 0.3, 0.1, 0.001, 0.0001, 0]
-        values = [1, 0.8, 0.5, 0.3, 0.1]
-        min_err_arr = []
-        best_w = []
+        # min_err_arr = []
+        # best_w = []
         # for i in range(len(values)):
         #     output.write(f'Starting with new learning rate...\n')
         #     for j in range(len(values)):
         #         start = datetime.now()
         #         st_current_time = start.strftime("%H:%M:%S")
         #         output.write(f'Start training at -  {st_current_time}\n')
-        #         w, min_err, ep = find_weights_bias(train_x, train_y, values[j], values[i], 50)
+        w, min_err, ep = find_weights_bias(train_x, train_y, 0.1, 0.1, 50)
         #         min_err_arr.append(min_err)
         #         best_w.append(w)
         #         output.write(f'minimum error: {min_err} in epoch: {ep} and weights are: {w} \n'
@@ -227,12 +232,13 @@ def svm(train_x, train_y, test_x):
         # output.write(
         #     f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
         # output.close()
+        return w
 
-    # training(train_x, train_y)
+    best_weights_found = training(train_x, train_y)
     # predicts
-    best_weights_found = np.array([([0.18710489, 0.00353916, 0.67677144, 0.69887273, 0.05898188, -0.34122238]),
-                                   ([0.10580316, -0.45370831, 0.02953652, -0.15403748, -0.00902337, 0.31851379]),
-                                   ([-0.29290805, 0.45016915, -0.70630796, -0.54483525, -0.04995851, 0.02270859])])
+    # best_weights_found = np.array([([0.18710489, 0.00353916, 0.67677144, 0.69887273, 0.05898188, -0.34122238]),
+    #                                ([0.10580316, -0.45370831, 0.02953652, -0.15403748, -0.00902337, 0.31851379]),
+    #                                ([-0.29290805, 0.45016915, -0.70630796, -0.54483525, -0.04995851, 0.02270859])])
     predictions = []
     for x in test_x:
         predictions.append(arg_max(best_weights_found, x))
@@ -290,12 +296,13 @@ def passive_aggressive(train_x, train_y, test_x):
         # output.write(
         #     f'Minimum Error in all training is {min_e} and the weights are {best_w[min_err_arr.index(min_e)]}\n')
         # output.close()
+        return w
 
-    # training(train_x, train_y)
+    best_weights_found = training(train_x, train_y)
     # predicts
-    best_weights_found = np.array([([0.61320707, -1.14797863, 4.24116836, 3.43345916, -0.23288381, -2.98588669]),
-                                   ([0.31033628, 0.25195826, -1.34558459, -1.09893239, 0.41667218, 2.87038145]),
-                                   ([-0.92354335, 0.89602037, -2.89558377, -2.33452677, - 0.18378837, 0.11550524])])
+    # best_weights_found = np.array([([0.61320707, -1.14797863, 4.24116836, 3.43345916, -0.23288381, -2.98588669]),
+    #                                ([0.31033628, 0.25195826, -1.34558459, -1.09893239, 0.41667218, 2.87038145]),
+    #                                ([-0.92354335, 0.89602037, -2.89558377, -2.33452677, - 0.18378837, 0.11550524])])
     predictions = []
     for x in test_x:
         predictions.append(arg_max(best_weights_found, x))
@@ -303,12 +310,14 @@ def passive_aggressive(train_x, train_y, test_x):
 
 
 if __name__ == '__main__':
+    # start = datetime.now()
+    # st_current_time = start.strftime("%H:%M:%S")
+    # print(f'Start training at -  {st_current_time}\n')
     train_x, train_y, test_s, output_file = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     # loading data
     train_x = np.loadtxt(train_x, delimiter=",")
     train_y = np.loadtxt(train_y, delimiter=",")
     test_s = np.loadtxt(test_s, delimiter=",")
-    # test_y = np.loadtxt('test_y.txt', delimiter=",")
     # normalizing and shuffle data
     normal_x = z_score(train_x)
     normal_test = z_score(test_s)
@@ -327,3 +336,6 @@ if __name__ == '__main__':
     for i in range(len(normal_test)):
         out.write(f"knn: {pred_knn[i]}, perceptron: {pred_prec[i]}, svm: {pred_svm[i]}, pa: {pred_pa[i]}\n")
     out.close()
+    # end = datetime.now()
+    # end_current_time = end.strftime("%H:%M:%S")
+    # print(f'End training at - {end_current_time}\n')
